@@ -1,0 +1,21 @@
+<ion-menu [content]="content">
+
+  <ion-header>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-navbar>
+      <ion-title>{{ 'MAP_TITLE' | translate }}</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>

@@ -1,0 +1,56 @@
+{
+
+  "BACK_BUTTON_TEXT" : "Zurück",
+
+  "NAME": "Name",
+  "PASSWORD": "Kennwort",
+  "EMAIL": "E-Mail",
+  "LOGIN": "Anmelden",
+  "SIGNUP": "Registrieren",
+
+  "TAB1_TITLE": "Items",
+  "TAB2_TITLE": "Suche",
+  "TAB3_TITLE": "Einstellungen",
+
+  "MAP_TITLE": "Karte",
+
+  "TUTORIAL_SKIP_BUTTON" : "Überspringen",
+  "TUTORIAL_CONTINUE_BUTTON" : "Weiter",
+
+  "TUTORIAL_SLIDE1_TITLE": "Herzlich Willkommen bei<br/>Green City",
+  "TUTORIAL_SLIDE1_DESCRIPTION": "Mit der <b>Green City App</b> kannst du direkt mit der Pflege von Spots loslegen.",
+
+  "TUTORIAL_SLIDE2_TITLE": "Wie soll man die Super Starter App verwenden",
+  "TUTORIAL_SLIDE2_DESCRIPTION": "Nütze und bearbeite die Funktionen und Seiten die du benötigst und lösche den Rest. Wähle aus einer vielzahl an Layouts, wie Anmelden, Registrieren, Tabs und einer Tutorial Seite.",
+
+  "TUTORIAL_SLIDE3_TITLE": "Los gehts",
+  "TUTORIAL_SLIDE3_DESCRIPTION": "Du brauchst Hilfe? Sieh dir das README File an um mehr zu erfahren.",
+
+  "SETTINGS_TITLE": "Einstellungen",
+  "SETTINGS_OPTION1": "Option 1",
+  "SETTINGS_OPTION2": "Option 2",
+  "SETTINGS_OPTION3": "Option 3",
+  "SETTINGS_OPTION4": "Option 4",
+
+  "SETTINGS_PAGE_PROFILE": "Profil ändern",
+
+  "WELCOME_TITLE": "Willkommen",
+  "WELCOME_INTRO" : "Willkommen bei Green City",
+
+  "LOGIN_TITLE": "Anmelden",
+  "LOGIN_ERROR": "Fehler beim Anmelden, bitte überprüfe deine Informationen und versuche es erneut.",
+  "LOGIN_BUTTON": "Anmelden",
+  "SIGNUP_TITLE": "Registrieren",
+  "SIGNUP_ERROR": "Fehler beim Registrieren, bitte überprüfe deine Informationen und versuche es erneut.",
+  "SIGNUP_BUTTON": "Registrieren",
+
+  "LIST_MASTER_TITLE": "Artikel",
+
+  "ITEM_CREATE_TITLE": "Neuer Artikel",
+  "ITEM_CREATE_CHOOSE_IMAGE": "Artikel hinzufügen",
+
+  "CARDS_TITLE": "Social",
+
+  "SEARCH_TITLE": "Suche",
+  "SEARCH_PLACEHOLDER" : "Suche nach Spots in deiner Nähe"
+}
