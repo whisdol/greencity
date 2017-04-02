@@ -8,7 +8,6 @@ import { MyApp } from './app.component';
 import { CardsPage } from '../pages/cards/cards';
 import { ContentPage } from '../pages/content/content';
 import { LoginPage } from '../pages/login/login';
-import { MapPage } from '../pages/map/map';
 import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
@@ -19,6 +18,12 @@ import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { MenuPage } from '../pages/menu/menu';
 import { SettingsPage } from '../pages/settings/settings';
 import { SearchPage } from '../pages/search/search';
+import { MapPage } from '../pages/map/map';
+import { WissenPage } from '../pages/wissen/wissen';
+import { CommunityPage } from '../pages/community/community';
+import { NachrichtenPage } from '../pages/nachrichten/nachrichten';
+import { EinstellungenPage } from '../pages/einstellungen/einstellungen';
+import { UeberPage } from '../pages/ueber/ueber';
 
 import { User } from '../providers/user';
 import { Api } from '../providers/api';
@@ -59,7 +64,6 @@ let pages = [
   CardsPage,
   ContentPage,
   LoginPage,
-  MapPage,
   SignupPage,
   TabsPage,
   TutorialPage,
@@ -69,7 +73,13 @@ let pages = [
   ItemCreatePage,
   MenuPage,
   SettingsPage,
-  SearchPage
+  SearchPage,
+  MapPage,
+  WissenPage,
+  CommunityPage,
+  NachrichtenPage,
+  EinstellungenPage,
+  UeberPage
 ];
 
 export function declarations() {

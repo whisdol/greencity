@@ -5,18 +5,23 @@ import { StatusBar, Splashscreen } from 'ionic-native';
 import { Settings } from '../providers/providers';
 
 import { FirstRunPage } from '../pages/pages';
-import { CardsPage } from '../pages/cards/cards';
-import { ContentPage } from '../pages/content/content';
+//import { CardsPage } from '../pages/cards/cards';
+//import { ContentPage } from '../pages/content/content';
 import { LoginPage } from '../pages/login/login';
-import { MapPage } from '../pages/map/map';
-import { SignupPage } from '../pages/signup/signup';
-import { TabsPage } from '../pages/tabs/tabs';
+//import { SignupPage } from '../pages/signup/signup';
+//import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { WelcomePage } from '../pages/welcome/welcome';
-import { ListMasterPage } from '../pages/list-master/list-master';
-import { MenuPage } from '../pages/menu/menu';
-import { SettingsPage } from '../pages/settings/settings';
-import { SearchPage } from '../pages/search/search';
+//import { ListMasterPage } from '../pages/list-master/list-master';
+//import { MenuPage } from '../pages/menu/menu';
+//import { SettingsPage } from '../pages/settings/settings';
+//import { SearchPage } from '../pages/search/search';
+import { MapPage } from '../pages/map/map';
+import { WissenPage } from '../pages/wissen/wissen';
+import { CommunityPage } from '../pages/community/community';
+import { NachrichtenPage } from '../pages/nachrichten/nachrichten';
+import { EinstellungenPage } from '../pages/einstellungen/einstellungen';
+import { UeberPage } from '../pages/ueber/ueber';
 
 import { TranslateService } from 'ng2-translate/ng2-translate';
 
@@ -24,7 +29,7 @@ import { TranslateService } from 'ng2-translate/ng2-translate';
   template: `<ion-menu [content]="content">
     <ion-header>
       <ion-toolbar>
-        <ion-title>Pages</ion-title>
+        <ion-title>Green City</ion-title>
       </ion-toolbar>
     </ion-header>
 
@@ -45,18 +50,23 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-    { title: 'Tutorial', component: TutorialPage },
-    { title: 'Welcome', component: WelcomePage },
-    { title: 'Tabs', component: TabsPage },
-    { title: 'Cards', component: CardsPage },
-    { title: 'Content', component: ContentPage },
-    { title: 'Login', component: LoginPage },
-    { title: 'Signup', component: SignupPage },
-    { title: 'Map', component: MapPage },
-    { title: 'Master Detail', component: ListMasterPage },
-    { title: 'Menu', component: MenuPage },
-    { title: 'Settings', component: SettingsPage },
-    { title: 'Search', component: SearchPage }
+//    { title: 'Tutorial', component: TutorialPage },
+//    { title: 'Welcome', component: WelcomePage },
+//    { title: 'Tabs', component: TabsPage },
+//    { title: 'Cards', component: CardsPage },
+//    { title: 'Content', component: ContentPage },
+//    { title: 'Login', component: LoginPage },
+//    { title: 'Signup', component: SignupPage },
+//    { title: 'Master Detail', component: ListMasterPage },
+//    { title: 'Menu', component: MenuPage },
+//    { title: 'Settings', component: SettingsPage },
+//    { title: 'Search', component: SearchPage },
+    { title: 'Spots', component: MapPage },
+    { title: 'Wissen', component: WissenPage },
+    { title: 'Community', component: CommunityPage },
+    { title: 'Nachrichten', component: NachrichtenPage },
+    { title: 'Einstellungen', component: EinstellungenPage },
+    { title: 'Über', component: UeberPage }
   ]
 
   constructor(translate: TranslateService, platform: Platform, settings: Settings, config: Config) {
