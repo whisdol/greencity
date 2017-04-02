@@ -1,27 +1,3 @@
-/* import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular'; */
-
-/*
-  Generated class for the SpotsJS page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-  */
-/* @Component({
-  selector: 'page-map',
-  templateUrl: 'map.html'
-})
-export class MapPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad MapPage');
-  }
-
-} */
-
-
 import {
 	Component,
 	ElementRef,
@@ -30,9 +6,6 @@ import {
 import {
 	NavController
 } from 'ionic-angular';
-import {
-	Geolocation
-} from 'ionic-native';
 
 declare var google;
 
@@ -62,6 +35,7 @@ export class MapPage {
 			window['mapInit'] = () => {
 				this.initMap();
 				this.enableMap();
+				this.showMarkers();
 			}
 
 			let script = document.createElement("script");
@@ -81,6 +55,7 @@ export class MapPage {
 			console.log("showing map");
 			this.initMap();
 			this.enableMap();
+			this.showMarkers();
 
 		}
 
@@ -90,19 +65,15 @@ export class MapPage {
 
 		this.mapInitialised = true;
 
-		Geolocation.getCurrentPosition().then((position) => {
+		let centerLatLng = new google.maps.LatLng(50.954375, 6.952084);
 
-			let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+		let mapOptions = {
+			center: centerLatLng,
+			zoom: 15,
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		}
 
-			let mapOptions = {
-				center: latLng,
-				zoom: 15,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			}
-
-			this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
-
-		});
+		this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
 
 	}
 
@@ -112,6 +83,26 @@ export class MapPage {
 
 	enableMap() {
 		console.log("enable map");
+	}
+
+	showMarkers() {
+		let spotMarker = 'assets/img/spotmarker.png';
+
+		let markers = [{'id': 12345, 'name': 'Escher Gärtchen', 'lat': 50.955639, 'lng': 6.948812},
+						{'id': 12346, 'name': 'Wickraths Strauß', 'lat': 50.954375, 'lng': 6.952084},
+						{'id': 12347, 'name': 'Kasparle', 'lat': 50.953486, 'lng': 6.953065},
+						{'id': 12348, 'name': 'Ringschen', 'lat': 50.949931, 'lng': 6.955110},];
+
+		markers.forEach((marker) => {
+			console.log(marker);
+			let pos = new google.maps.LatLng(marker['lat'], marker['lng']);
+			let m = new google.maps.Marker({
+				position: pos,
+				icon: spotMarker,
+				title: marker['name']
+			});
+			m.setMap(this.map);
+		});
 	}
 
 }
