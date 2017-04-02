@@ -22,42 +22,31 @@ export class MapPage {
 	apiKey: string = "AIzaSyBu9-88Bzcq4LlXqeQgXgT77iCW5q6X5Gw";
 
 	constructor(public navCtrl: NavController) {
+		console.log("Initializing MapPage, called Constructor");
 		this.loadGoogleMaps();
 	}
 
 	loadGoogleMaps() {
 
-		if (typeof google == "undefined" || typeof google.maps == "undefined") {
+		console.log("loading map");
 
-			console.log("online, loading map");
-
-			//Load the SDK
-			window['mapInit'] = () => {
-				this.initMap();
-				this.enableMap();
-				this.showMarkers();
-			}
-
-			let script = document.createElement("script");
-			script.id = "googleMaps";
-
-			if (this.apiKey) {
-				script.src = 'http://maps.google.com/maps/api/js?key=' + this.apiKey + '&callback=mapInit';
-			} else {
-				script.src = 'http://maps.google.com/maps/api/js?callback=mapInit';
-			}
-
-			document.body.appendChild(script);
-
-		} else {
-
-
-			console.log("showing map");
+		//Load the SDK
+		window['mapInit'] = () => {
 			this.initMap();
 			this.enableMap();
 			this.showMarkers();
-
 		}
+
+		let script = document.createElement("script");
+		script.id = "googleMaps";
+
+		if (this.apiKey) {
+			script.src = 'http://maps.google.com/maps/api/js?key=' + this.apiKey + '&callback=mapInit';
+		} else {
+			script.src = 'http://maps.google.com/maps/api/js?callback=mapInit';
+		}
+
+		document.body.appendChild(script);
 
 	}
 
@@ -86,6 +75,7 @@ export class MapPage {
 	}
 
 	showMarkers() {
+		console.log("adding markers to map");
 		let spotMarker = 'assets/img/spotmarker.png';
 
 		let markers = [{'id': 12345, 'name': 'Escher Gärtchen', 'description': 'Das kleine Gärtchen an der Escherstr.', 'lat': 50.955639, 'lng': 6.948812},
@@ -94,7 +84,6 @@ export class MapPage {
 						{'id': 12348, 'name': 'Ringschen', 'description': 'Direkt am Hansaring: die kleine Oase.','lat': 50.949931, 'lng': 6.955110},];
 
 		markers.forEach((marker) => {
-			console.log(marker);
 			let pos = new google.maps.LatLng(marker['lat'], marker['lng']);
 			let m = new google.maps.Marker({
 				position: pos,
