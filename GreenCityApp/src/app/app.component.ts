@@ -63,7 +63,7 @@ export class MyApp {
     { title: 'Community', component: CommunityPage },
     { title: 'Nachrichten', component: NachrichtenPage },
     { title: 'Einstellungen', component: EinstellungenPage },
-    { title: 'Über', component: UeberPage }
+    { title: 'Über uns', component: UeberPage }
   ]
 
   constructor(translate: TranslateService, platform: Platform, settings: Settings, config: Config) {
