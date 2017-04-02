@@ -1,22 +1,29 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
+import { TranslateService } from 'ng2-translate/ng2-translate';
 
-/*
-  Generated class for the Community page.
+import { Tab6Root } from '../pages';
+import { Tab7Root } from '../pages';
+import { Tab8Root } from '../pages';
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-community',
   templateUrl: 'community.html'
 })
 export class CommunityPage {
+  tab6Root: any = Tab6Root;
+  tab7Root: any = Tab7Root;
+  tab8Root: any = Tab8Root;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  tab6Title = " ";
+  tab7Title = " ";
+  tab8Title = " ";
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CommunityPage');
+  constructor(public navCtrl: NavController, public translateService: TranslateService) {
+    translateService.get(['TAB1_TITLE', 'TAB2_TITLE', 'TAB3_TITLE']).subscribe(values => {
+      this.tab6Title = "Profil";
+      this.tab7Title = "Chat";
+      this.tab8Title = "Buddys";
+    });
   }
-
 }

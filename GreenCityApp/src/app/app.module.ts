@@ -20,7 +20,15 @@ import { SettingsPage } from '../pages/settings/settings';
 import { SearchPage } from '../pages/search/search';
 import { MapPage } from '../pages/map/map';
 import { WissenPage } from '../pages/wissen/wissen';
+import { WissenBeliebtPage } from '../pages/wissen-beliebt/wissen-beliebt';
+import { WissenNeuPage } from '../pages/wissen-neu/wissen-neu';
+import { WissenTopPage } from '../pages/wissen-top/wissen-top';
+import { WissenExpertenPage } from '../pages/wissen-experten/wissen-experten';
+import { WissenSuchePage } from '../pages/wissen-suche/wissen-suche';
 import { CommunityPage } from '../pages/community/community';
+import { CommunityChatPage } from '../pages/community-chat/community-chat';
+import { CommunityProfilPage } from '../pages/community-profil/community-profil';
+import { CommunityUgalleryPage } from '../pages/community-ugallery/community-ugallery';
 import { NachrichtenPage } from '../pages/nachrichten/nachrichten';
 import { EinstellungenPage } from '../pages/einstellungen/einstellungen';
 import { UeberPage } from '../pages/ueber/ueber';
@@ -76,7 +84,15 @@ let pages = [
   SearchPage,
   MapPage,
   WissenPage,
+  WissenBeliebtPage,
+  WissenNeuPage,
+  WissenTopPage,
+  WissenExpertenPage,
+  WissenSuchePage,
   CommunityPage,
+  CommunityChatPage,
+  CommunityProfilPage,
+  CommunityUgalleryPage,
   NachrichtenPage,
   EinstellungenPage,
   UeberPage

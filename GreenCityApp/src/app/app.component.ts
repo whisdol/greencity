@@ -18,7 +18,15 @@ import { WelcomePage } from '../pages/welcome/welcome';
 //import { SearchPage } from '../pages/search/search';
 import { MapPage } from '../pages/map/map';
 import { WissenPage } from '../pages/wissen/wissen';
+import { WissenBeliebtPage } from '../pages/wissen-beliebt/wissen-beliebt';
+import { WissenNeuPage } from '../pages/wissen-neu/wissen-neu';
+import { WissenTopPage } from '../pages/wissen-top/wissen-top';
+import { WissenExpertenPage } from '../pages/wissen-experten/wissen-experten';
+import { WissenSuchePage } from '../pages/wissen-suche/wissen-suche';
 import { CommunityPage } from '../pages/community/community';
+import { CommunityChatPage } from '../pages/community-chat/community-chat';
+import { CommunityProfilPage } from '../pages/community-profil/community-profil';
+import { CommunityUgalleryPage } from '../pages/community-ugallery/community-ugallery';
 import { NachrichtenPage } from '../pages/nachrichten/nachrichten';
 import { EinstellungenPage } from '../pages/einstellungen/einstellungen';
 import { UeberPage } from '../pages/ueber/ueber';
@@ -50,17 +58,6 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
-//    { title: 'Tutorial', component: TutorialPage },
-//    { title: 'Welcome', component: WelcomePage },
-//    { title: 'Tabs', component: TabsPage },
-//    { title: 'Cards', component: CardsPage },
-//    { title: 'Content', component: ContentPage },
-//    { title: 'Login', component: LoginPage },
-//    { title: 'Signup', component: SignupPage },
-//    { title: 'Master Detail', component: ListMasterPage },
-//    { title: 'Menu', component: MenuPage },
-//    { title: 'Settings', component: SettingsPage },
-//    { title: 'Search', component: SearchPage },
     { title: 'Spots', component: MapPage },
     { title: 'Wissen', component: WissenPage },
     { title: 'Community', component: CommunityPage },

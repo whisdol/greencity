@@ -29,24 +29,26 @@ export class TutorialPage {
                    "TUTORIAL_SLIDE2_DESCRIPTION",
                    "TUTORIAL_SLIDE3_TITLE",
                    "TUTORIAL_SLIDE3_DESCRIPTION",
+                   "TUTORIAL_SLIDE4_TITLE",
+                   "TUTORIAL_SLIDE4_DESCRIPTION",
     ])
     .subscribe((values) => {
       console.log('Loaded values', values);
       this.slides = [
         {
-          title: values.TUTORIAL_SLIDE1_TITLE,
-          description: values.TUTORIAL_SLIDE1_DESCRIPTION,
-          image: 'assets/img/ica-slidebox-img-1.png',
+          title: "Herzlich Willkommen bei<br/>Green City.",
+          description: "Vielen Dank, dass du dich für Green City entschieden hast.",
+          image: 'assets/img/004-sprout.png',
         },
         {
-          title: values.TUTORIAL_SLIDE2_TITLE,
-          description: values.TUTORIAL_SLIDE2_DESCRIPTION,
-          image: 'assets/img/ica-slidebox-img-2.png',
+          title: "Gemeinsam stark.",
+          description: "Interagiere mit anderen Nutzern, um Grünflächen zu pflegen, dich mit Experten auszutauschen und nützliche Tipps rund um die Pflege von Spots zu erhalten.",
+          image: 'assets/img/002-chat.png',
         },
         {
-          title: values.TUTORIAL_SLIDE3_TITLE,
-          description: values.TUTORIAL_SLIDE3_DESCRIPTION,
-          image: 'assets/img/ica-slidebox-img-3.png',
+          title: "Alles wird grün!",
+          description: "Bring den Spross zum wachsen - mach deine Stadt zu einer grünen Oase und lass sie zur umweltfreundlichsten Stadt des Landes werden.",
+          image: 'assets/img/001-badge.png',
         }
       ];
     });
