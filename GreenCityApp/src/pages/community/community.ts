@@ -23,7 +23,7 @@ export class CommunityPage {
     translateService.get(['TAB1_TITLE', 'TAB2_TITLE', 'TAB3_TITLE']).subscribe(values => {
       this.tab6Title = "Profil";
       this.tab7Title = "Chat";
-      this.tab8Title = "Buddys";
+      this.tab8Title = "Kontakte";
     });
   }
 }
