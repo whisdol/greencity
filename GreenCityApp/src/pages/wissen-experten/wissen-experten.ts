@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 
 /*
-  Generated class for the WissenExperten page.
+  Generated class for the Cards page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
@@ -12,11 +12,29 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'wissen-experten.html'
 })
 export class WissenExpertenPage {
+  cardItems: any[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController) {
+    this.cardItems = [
+      {
+        user: {
+          avatar: 'assets/img/bastian-avatar.jpg',
+          name: 'Bastian'
+        },
+        date: 'vor 1 Stunde',
+        image: 'assets/img/advance-card-bttf.png',
+        content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.',
+      },
+      {
+        user: {
+          avatar: 'assets/img/christina-avatar.jpg',
+          name: 'Christina'
+        },
+        date: 'vor 4 Stunden',
+        image: 'assets/img/advance-card-jp.jpg',
+        content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.'
+      }
+    ];
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad WissenExpertenPage');
   }
-
 }

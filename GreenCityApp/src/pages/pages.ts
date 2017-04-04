@@ -1,7 +1,4 @@
-import { TabsPage } from './tabs/tabs';
 import { TutorialPage } from './tutorial/tutorial';
-import { ListMasterPage } from './list-master/list-master';
-import { SearchPage } from './search/search';
 import { CommunityChatPage } from './community-chat/community-chat';
 import { CommunityProfilPage } from './community-profil/community-profil';
 import { CommunityUgalleryPage } from './community-ugallery/community-ugallery';
@@ -10,7 +7,6 @@ import { WissenNeuPage } from './wissen-neu/wissen-neu';
 import { WissenTopPage } from './wissen-top/wissen-top';
 import { WissenExpertenPage } from './wissen-experten/wissen-experten';
 import { WissenSuchePage } from './wissen-suche/wissen-suche';
-import { SettingsPage } from './settings/settings';
 import { MapPage } from './map/map';
 
 // The page the user lands on after opening the app and without a session

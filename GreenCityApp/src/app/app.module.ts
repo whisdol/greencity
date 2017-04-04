@@ -5,19 +5,12 @@ import { Storage, IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 
-import { CardsPage } from '../pages/cards/cards';
-import { ContentPage } from '../pages/content/content';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
-import { TabsPage } from '../pages/tabs/tabs';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { WelcomePage } from '../pages/welcome/welcome';
-import { ListMasterPage } from '../pages/list-master/list-master';
 import { ItemCreatePage } from '../pages/item-create/item-create';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
-import { MenuPage } from '../pages/menu/menu';
-import { SettingsPage } from '../pages/settings/settings';
-import { SearchPage } from '../pages/search/search';
 import { MapPage } from '../pages/map/map';
 import { WissenPage } from '../pages/wissen/wissen';
 import { WissenBeliebtPage } from '../pages/wissen-beliebt/wissen-beliebt';
@@ -55,9 +48,8 @@ export function provideSettings(storage: Storage) {
    */
   return new Settings(storage, {
     option1: true,
-    option2: 'Ionitron J. Framework',
-    option3: '3',
-    option4: 'Hello'
+    option2: false,
+    option4: "Köln"
   });
 }
 
@@ -69,19 +61,12 @@ export function provideSettings(storage: Storage) {
  */
 let pages = [
   MyApp,
-  CardsPage,
-  ContentPage,
   LoginPage,
   SignupPage,
-  TabsPage,
   TutorialPage,
   WelcomePage,
-  ListMasterPage,
   ItemDetailPage,
   ItemCreatePage,
-  MenuPage,
-  SettingsPage,
-  SearchPage,
   MapPage,
   WissenPage,
   WissenBeliebtPage,
