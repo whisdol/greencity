@@ -22,7 +22,7 @@ export class WissenExpertenPage {
           name: 'Bastian'
         },
         date: 'vor 1 Stunde',
-        image: 'assets/img/advance-card-bttf.png',
+        image: 'assets/img/beet-8.png',
         content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.',
       },
       {
@@ -31,7 +31,7 @@ export class WissenExpertenPage {
           name: 'Christina'
         },
         date: 'vor 4 Stunden',
-        image: 'assets/img/advance-card-jp.jpg',
+        image: 'assets/img/beet-2.png',
         content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.'
       }
     ];
