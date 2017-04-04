@@ -1,5 +1,4 @@
 import { TutorialPage } from './tutorial/tutorial';
-import { ListMasterPage } from './list-master/list-master';
 import { CommunityChatPage } from './community-chat/community-chat';
 import { CommunityProfilPage } from './community-profil/community-profil';
 import { CommunityUgalleryPage } from './community-ugallery/community-ugallery';

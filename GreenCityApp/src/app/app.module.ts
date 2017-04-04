@@ -9,7 +9,6 @@ import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { WelcomePage } from '../pages/welcome/welcome';
-import { ListMasterPage } from '../pages/list-master/list-master';
 import { ItemCreatePage } from '../pages/item-create/item-create';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { MapPage } from '../pages/map/map';
@@ -66,7 +65,6 @@ let pages = [
   SignupPage,
   TutorialPage,
   WelcomePage,
-  ListMasterPage,
   ItemDetailPage,
   ItemCreatePage,
   MapPage,

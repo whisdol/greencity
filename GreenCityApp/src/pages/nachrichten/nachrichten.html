@@ -16,6 +16,39 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
+  <ion-card *ngFor="let item of cardItems">
+
+    <ion-item text-wrap>
+      <ion-card-content>
+        <ion-row>
+              <ion-col width-20>
+      <ion-avatar>
+        <img [src]="item.user.avatar">
+      </ion-avatar>
+      </ion-col>
+      <ion-col>
+        <p>{{item.content}}</p>
+        <p class="right"><small>{{item.date}}</small></p>
+      </ion-col>
+      </ion-row>
+            </ion-card-content>
+    </ion-item>
+
+    <!-- <ion-row>
+      <ion-col>
+        <button ion-button color="primary" clear small icon-left>
+            <ion-icon name='thumbs-up'></ion-icon>
+            12 Grüne Daumen
+          </button>
+      </ion-col> -->
+      <!-- <ion-col center text-right>
+        <button ion-button color="primary" clear small icon-left>
+            <ion-icon name='text'></ion-icon>
+            4 Kommentare
+          </button>
+      </ion-col> -->
+    <!-- </ion-row> -->
+  </ion-card>
 </ion-content>
