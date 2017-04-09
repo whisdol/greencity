@@ -4,6 +4,8 @@ import {
 	ViewChild
 } from '@angular/core';
 import { NavController, Modal, ModalController } from 'ionic-angular';
+import { SpotDetailPage } from '../spot-detail/spot-detail'
+import { SpotPreviewPage } from '../spot-preview/spot-preview'
 
 declare var google;
 
@@ -89,10 +91,15 @@ export class MapPage {
 				title: marker['name']
 			});
 			m.setMap(this.map);
-			var info = this.createInfoWindow(marker);
+/*			var info = this.createInfoWindow(marker);
 			m.addListener('click', function() {
 				info.open(this.map, m);
-			})
+			})*/
+
+			var info = this.openSpotPreviewModal(marker);
+			m.addListener('click', function() {
+				info.present();
+			});
 		});
 	}
 
@@ -102,7 +109,8 @@ export class MapPage {
 			'	<h1>' + marker['name'] + '</h1><br>' +
 			'	<span>Spot-Verantwortliche/r: <strong>' + marker['owner'] + '</strong></span><br>' +
 			'	<img src="' + marker['img'] + '"><br>' +
-			'	<span class="city-rating">Top #' + marker['cityrank'] + ' in ' + marker['city'] + '.</span>' +
+			'	<span class="city-rating">Top #' + marker['cityrank'] + ' in ' + marker['city'] + '.</span><br>' +
+			'	<button ion-item onClick="openItem(' + marker['id'] + ')">Mehr...</button>'
 			'</ion-content>'
 
 		return new google.maps.InfoWindow({
@@ -110,4 +118,14 @@ export class MapPage {
 		});
 	}
 
+	openItem(id: number) {
+    	this.navCtrl.push(SpotDetailPage, {
+    	  id: id
+    	});
+    }
+
+    openSpotPreviewModal(markerData: any) {
+		return this.modCtrl.create(SpotPreviewPage, markerData);
+        
+	}
 }
