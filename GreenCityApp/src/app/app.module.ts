@@ -69,7 +69,6 @@ let pages = [
   ItemDetailPage,
   ItemCreatePage,
   MapPage,
-  SpotPreviewPage,
   WissenPage,
   WissenBeliebtPage,
   WissenNeuPage,

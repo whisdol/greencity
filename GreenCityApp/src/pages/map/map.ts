@@ -4,7 +4,6 @@ import {
 	ViewChild
 } from '@angular/core';
 import { NavController, Modal, ModalController } from 'ionic-angular';
-import { SpotPreviewPage } from '../spot-preview/spot-preview'
 
 declare var google;
 
@@ -94,10 +93,6 @@ export class MapPage {
 			m.addListener('click', function() {
 				info.open(this.map, m);
 			})
-/*			var info = this.openSpotPreviewModal(marker);
-			m.addListener('click', function() {
-				info.present();
-			});*/
 		});
 	}
 
@@ -113,11 +108,6 @@ export class MapPage {
 		return new google.maps.InfoWindow({
 			content: contentString
 		});
-	}
-
-	openSpotPreviewModal(markerData: any) {
-		return this.modCtrl.create(SpotPreviewPage, markerData);
-        
 	}
 
 }
