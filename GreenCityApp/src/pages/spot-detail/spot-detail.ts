@@ -71,8 +71,4 @@ export class SpotDetailPage {
 		console.log('Rated something, tbd');
 	}
 
-	dismiss() {
-		this.viewCtrl.dismiss();
-	}
-
 }
