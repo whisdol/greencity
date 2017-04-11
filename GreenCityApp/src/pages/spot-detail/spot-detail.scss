@@ -1,8 +1,21 @@
 page-spot-detail {
+	.spot-images {
+		max-height: 50%;
+
+		.swiper-pagination-bullet-active {
+			background: color($colors, primary, base) !important;
+		}
+	}
+
+	.rating-section {
+		text-align: center;
+	}
+
+	.ranking {
+		font-style: italic;
+		text-align: right !important;
+	}
+
 
 }
 
-spot-images {
-	max-height: 50%;
-	width: 100%;
-}
