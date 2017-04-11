@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController} from 'ionic-angular';
+import { NavController, NavParams, ViewController, ModalController} from 'ionic-angular';
 
 import { SpotDetailPage } from '../spot-detail/spot-detail'
 
@@ -16,7 +16,7 @@ import { SpotDetailPage } from '../spot-detail/spot-detail'
 export class SpotPreviewPage {
 	spot: Object
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+	constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public modCtrl: ModalController) {
 		this.spot = navParams.data
 	}
 
@@ -30,9 +30,11 @@ export class SpotPreviewPage {
 	}
 
 	openSpotDetail(id: number) {
-		this.navCtrl.push(SpotDetailPage, {
-			id: id
-		});
+		let detail = this.modCtrl.create(SpotDetailPage, {'id': id});
+		detail.present();
+		// this.navCtrl.push(SpotDetailPage, {
+		// 	id: id
+		// });
 	}
 
 }
