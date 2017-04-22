@@ -3,7 +3,6 @@ package de.whisdol.greencity.api;
 import de.whisdol.greencity.GreencityserverApplication;
 import de.whisdol.greencity.dao.CityDAO;
 import de.whisdol.greencity.model.City;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
