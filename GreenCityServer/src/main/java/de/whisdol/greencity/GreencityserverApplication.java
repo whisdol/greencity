@@ -1,6 +1,6 @@
 package de.whisdol.greencity;
 
-import de.whisdol.greencity.dao.GreenCityCityDAO;
+import de.whisdol.greencity.dao.CityDAO;
 import de.whisdol.greencity.model.City;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,6 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -33,7 +32,7 @@ public class GreencityserverApplication extends SpringBootServletInitializer {
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 
-		GreenCityCityDAO dao = (GreenCityCityDAO) context.getBean("cityDAO");;
+		CityDAO dao = (CityDAO) context.getBean("cityDAO");;
 
 		List<City> cities = dao.selectAllCities();
 

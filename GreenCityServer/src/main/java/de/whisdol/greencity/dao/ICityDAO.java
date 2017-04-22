@@ -1,7 +1,7 @@
 package de.whisdol.greencity.dao;
 
+import de.whisdol.greencity.api.ObjectNotFoundException;
 import de.whisdol.greencity.model.City;
-import javassist.NotFoundException;
 
 import javax.sql.DataSource;
 import java.util.List;
@@ -15,9 +15,9 @@ public interface ICityDAO
 
     void createCity(String name);
 
-    City selectCityById(long id);
+    City selectCityById(long id) throws ObjectNotFoundException;
 
-    List<City> selectCitiesById(long id);
+    City selectCityByName(String Name) throws ObjectNotFoundException;
 
     List<City> selectAllCities();
 
