@@ -2,6 +2,7 @@ package de.whisdol.greencity;
 
 import de.whisdol.greencity.dao.CityDAO;
 import de.whisdol.greencity.model.City;
+import javafx.application.Application;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -17,6 +18,7 @@ import java.util.List;
 @SpringBootApplication
 @RestController
 public class GreencityserverApplication extends SpringBootServletInitializer {
+	public static ApplicationContext context = new ClassPathXmlApplicationContext("Spring-Module.xml");
 
 	public static void main(String[] args) {
 		SpringApplication.run(GreencityserverApplication.class, args);
