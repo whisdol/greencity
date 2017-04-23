@@ -30,7 +30,7 @@ public class CityRestController {
     }
 
     @RequestMapping(value = "/{cityId}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    City getCity(@PathVariable Long cityId) {
+    City getCity(@PathVariable long cityId) {
         return cityDao.selectCityById(cityId);
     }
 

@@ -1,5 +1,8 @@
 package de.whisdol.greencity.model;
 
+import de.whisdol.greencity.GreencityserverApplication;
+import de.whisdol.greencity.dao.CityDAO;
+
 /**
  * Created by cedric on 22.04.17.
  */
@@ -17,6 +20,17 @@ public class City {
     public City(long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public City(City city) {
+        this.id = city.id;
+        this.name = city.name;
+    }
+
+    public City(long id) {
+        this.id = id;
+        CityDAO cityDao =(CityDAO) GreencityserverApplication.context.getBean("cityDAO");
+        this.name = cityDao.selectCityById(id).name;
     }
 
     public long getId() {

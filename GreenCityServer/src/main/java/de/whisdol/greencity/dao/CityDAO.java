@@ -28,6 +28,13 @@ public class CityDAO implements ICityDAO {
     }
 
     @Override
+    public void createCity(City city) {
+        JdbcTemplate insert = new JdbcTemplate(dataSource);
+        insert.update("INSERT INTO city (city_name) VALUES (?)",
+                new Object[] { city.getName() });
+    }
+
+    @Override
     public City selectCityById(long id) throws ObjectNotFoundException {
         List<City> rs = selectCitiesById(id);
         if (rs.size() == 0) throw new ObjectNotFoundException("city", Long.toString(id));

@@ -15,6 +15,8 @@ public interface ICityDAO
 
     void createCity(String name);
 
+    void createCity(City city);
+
     City selectCityById(long id) throws ObjectNotFoundException;
 
     City selectCityByName(String Name) throws ObjectNotFoundException;
