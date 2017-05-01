@@ -1,11 +1,9 @@
 package de.whisdol.greencity.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.apache.tomcat.jni.Local;
 
-import java.time.LocalDate;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.Date;
 
 /**
  * Created by cedric on 22.04.17.
@@ -17,10 +15,11 @@ public class User {
     private String password;
     private String userRole;
     private City city;
-    private LocalDateTime lastActivity;
+    private Timestamp lastActivity;
     private int commentCount;
+    private Image avatar;
 
-    public User(long id, String userName, String password, String userRole, City city, LocalDateTime lastActivity, int commentCount) {
+    public User(long id, String userName, String password, String userRole, City city, Timestamp lastActivity, int commentCount, Image avatar) {
 
         this.id = id;
         this.userName = userName;
@@ -29,20 +28,26 @@ public class User {
         this.city = city;
         this.lastActivity = lastActivity;
         this.commentCount = commentCount;
+        this.avatar = avatar;
     }
 
     public User() {
 
     }
 
-    public User(String userName, String password, City city) {
+    public User(String userName, String password, City city, Image avatar) {
         this.id = -1;
         this.userName = userName;
         this.password = password;
         this.city = city;
         this.userRole = "Grüner Daumen";
-        this.lastActivity = LocalDateTime.now();
+        this.lastActivity = Timestamp.valueOf(LocalDateTime.now());
         this.commentCount = 0;
+        this.avatar = avatar;
+    }
+
+    public User(long userId) {
+
     }
 
     public long getId() {
@@ -85,11 +90,11 @@ public class User {
         this.city = city;
     }
 
-    public LocalDateTime getLastActivity() {
+    public Timestamp getLastActivity() {
         return lastActivity;
     }
 
-    public void setLastActivity(LocalDateTime lastActivity) {
+    public void setLastActivity(Timestamp lastActivity) {
         this.lastActivity = lastActivity;
     }
 
@@ -101,4 +106,19 @@ public class User {
         this.commentCount = commentCount;
     }
 
+    public Image getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Image avatar) {
+        this.avatar = avatar;
+    }
+
+    public void setCity(long cityId) {
+        this.city = new City(cityId);
+    }
+
+    public void setAvatar(long avatarId) {
+        this.avatar = new Image(avatarId);
+    }
 }
