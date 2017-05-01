@@ -17,10 +17,10 @@ public interface IUserDAO
 
     User selectUserById(long id) throws ObjectNotFoundException;
 
-    User selectUserByName(String Name) throws ObjectNotFoundException;
+    User selectUserByName(String name) throws ObjectNotFoundException;
 
     List<User> selectAllUsers();
 
-    void deleteUser(User user);
+    void deleteUser(long id);
 
 }

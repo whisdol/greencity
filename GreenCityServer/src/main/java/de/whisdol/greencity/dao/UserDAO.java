@@ -22,42 +22,55 @@ public class UserDAO implements IUserDAO {
     @Override
     public User createUser(User user) {
         JdbcTemplate insert = new JdbcTemplate(dataSource);
-        insert.update("INSERT INTO address ( user_name, password, user_role, city_id, last_activity, comment_count, avatar_id ) VALUES ( ?, ?, ?, ?, ?, ?, ?)",
+        insert.update("INSERT INTO user ( user_name, password, user_role, city_id, last_activity, comment_count, avatar_id ) VALUES ( ?, ?, ?, ?, ?, ?, ?)",
                 new Object[]{user.getUserName(), user.getPassword(), user.getUserRole(), user.getCity().getId(), user.getLastActivity(), user.getCommentCount(), user.getAvatar().getId()});
         return getUserbyUser(user);
     }
 
     @Override
     public User selectUserById(long id) throws ObjectNotFoundException {
-        return null;
+        JdbcTemplate select = new JdbcTemplate(dataSource);
+        User user;
+        try {
+            user = (User) select.queryForObject("SELECT user_id, user_name, password, user_role, avatar_id, city_id, last_activity, comment_count FROM user WHERE user_id = ?",
+                    new Object[]{id},
+                    new UserRowMapper());
+        } catch (Exception e) {
+            throw new ObjectNotFoundException("User", "ID: " + Long.toString(id));
+        }
+        return user;
     }
 
     @Override
-    public User selectUserByName(String Name) throws ObjectNotFoundException {
-        return null;
+    public User selectUserByName(String name) throws ObjectNotFoundException {
+        JdbcTemplate select = new JdbcTemplate(dataSource);
+        User user;
+        try {
+            user = (User) select.queryForObject("SELECT user_id, user_name, password, user_role, avatar_id, city_id, last_activity, comment_count FROM user WHERE user_name = ?",
+                    new Object[]{name},
+                    new UserRowMapper());
+        } catch (Exception e) {
+            // Query failed or returned not exactly one Object
+            throw new ObjectNotFoundException("User", "Name: " + name);
+        }
+        return user;
     }
 
     @Override
     public List<User> selectAllUsers() {
-        return null;
+        JdbcTemplate selectAll = new JdbcTemplate(dataSource);
+        return (List<User>) selectAll.queryForObject("SELECT user_id, user_name, password, user_role, avatar_id, city_id, last_activity, comment_count FROM user",
+                new UserRowMapper());
     }
 
     @Override
-    public void deleteUser(User user) {
-
+    public void deleteUser(long id) {
+        JdbcTemplate delete = new JdbcTemplate(dataSource);
+        delete.update("DELETE FROM user WHERE user_id = ?",
+                new Object[]{id});
     }
 
-    public User getUserbyUser(User user) {
-        JdbcTemplate select = new JdbcTemplate(dataSource);
-        User returnUser;
-        try {
-            returnUser = (User) select.queryForObject("SELECT user_id, user_name, password, user_role, avatar_id, city_id, last_activity, comment_count FROM user WHERE user_name = ?",
-                    new Object[]{user.getUserName()},
-                    new UserRowMapper());
-        } catch (Exception e) {
-            // Query failed or returned not exactly one Object
-            throw new ObjectNotFoundException("User", "Name: " + user.getUserName());
-        }
-        return returnUser;
+    public User getUserbyUser(User user) throws ObjectNotFoundException {
+        return selectUserByName(user.getUserName());
     }
 }

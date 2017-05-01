@@ -1,6 +1,8 @@
 package de.whisdol.greencity.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import de.whisdol.greencity.GreencityserverApplication;
+import de.whisdol.greencity.dao.UserDAO;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -47,7 +49,16 @@ public class User {
     }
 
     public User(long userId) {
-
+        this.id = userId;
+        UserDAO userDao = (UserDAO) GreencityserverApplication.context.getBean("UserDAO");
+        User dbUser = userDao.selectUserById(userId);
+        this.userName = dbUser.userName;
+        this.password = dbUser.password;
+        this.userRole = dbUser.userRole;
+        this.city = dbUser.city;
+        this.lastActivity = dbUser.lastActivity;
+        this.commentCount = dbUser.commentCount;
+        this.avatar = dbUser.avatar;
     }
 
     public long getId() {
