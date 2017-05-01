@@ -1,9 +1,6 @@
-import {
-	Component,
-	ElementRef,
-	ViewChild
-} from '@angular/core';
-import { NavController, Modal, ModalController } from 'ionic-angular';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { NavController } from 'ionic-angular';
+import { SpotDetailPage } from '../spot-detail/spot-detail'
 
 declare var google;
 
@@ -19,7 +16,7 @@ export class MapPage {
 	mapInitialised: boolean = false;
 	apiKey: string = "AIzaSyBu9-88Bzcq4LlXqeQgXgT77iCW5q6X5Gw";
 
-	constructor(public navCtrl: NavController, private modCtrl: ModalController) {
+	constructor(public navCtrl: NavController) {
 		console.log("Initializing MapPage, called Constructor");
 		this.loadGoogleMaps();
 	}
@@ -89,25 +86,11 @@ export class MapPage {
 				title: marker['name']
 			});
 			m.setMap(this.map);
-			var info = this.createInfoWindow(marker);
+
+			let localNavCtrl = this.navCtrl;
 			m.addListener('click', function() {
-				info.open(this.map, m);
-			})
+				localNavCtrl.push(SpotDetailPage, { id: marker['id'] })
+			});
 		});
 	}
-
-	createInfoWindow(marker: any) {
-		// Returns a Google Maps Info Window to associate with markers
-		var contentString = '<ion-content class="spot-preview">' +
-			'	<h1>' + marker['name'] + '</h1><br>' +
-			'	<span>Spot-Verantwortliche/r: <strong>' + marker['owner'] + '</strong></span><br>' +
-			'	<img src="' + marker['img'] + '"><br>' +
-			'	<span class="city-rating">Top #' + marker['cityrank'] + ' in ' + marker['city'] + '.</span>' +
-			'</ion-content>'
-
-		return new google.maps.InfoWindow({
-			content: contentString
-		});
-	}
-
 }
