@@ -33,7 +33,7 @@ public class UserRestController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
-    ResponseEntity<?> createImage(@RequestBody User requestUser) {
+    ResponseEntity<?> createUser(@RequestBody User requestUser) {
         User user;
         try {
             user = userDao.getUserbyUser(requestUser);

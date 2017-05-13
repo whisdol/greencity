@@ -1,6 +1,7 @@
 package de.whisdol.greencity.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import de.whisdol.greencity.GreencityserverApplication;
 import de.whisdol.greencity.dao.UserDAO;
 
@@ -13,7 +14,6 @@ import java.time.LocalDateTime;
 public class User {
     private long id;
     private String userName;
-    @JsonIgnore
     private String password;
     private String userRole;
     private City city;
@@ -34,7 +34,12 @@ public class User {
     }
 
     public User() {
-
+        this.id = -1;
+        this.userName = "tobeset";
+        this.password = "tobeset";
+        this.userRole = "Grüner Daumen";
+        this.lastActivity = Timestamp.valueOf(LocalDateTime.now());
+        this.commentCount = 0;
     }
 
     public User(String userName, String password, City city, Image avatar) {
@@ -47,6 +52,8 @@ public class User {
         this.commentCount = 0;
         this.avatar = avatar;
     }
+
+
 
     public User(long userId) {
         this.id = userId;
@@ -77,10 +84,12 @@ public class User {
         this.userName = userName;
     }
 
+    @JsonIgnore
     public String getPassword() {
         return password;
     }
 
+    @JsonProperty
     public void setPassword(String password) {
         this.password = password;
     }
