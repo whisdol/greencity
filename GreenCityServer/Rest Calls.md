@@ -6,7 +6,8 @@
 **Method**: GET
 **Example Request**: /cities 
 **Example Response**:
-```[
+```
+[
   {
     "id": 2,
     "name": "Köln"
@@ -27,30 +28,37 @@
     "id": 8,
     "name": "Hagen"
   }
-]```
+]
+```
 
 ### Get City by Id
 **URL**: /cities/*id*
 **Method**: GET
 **Example Request**: /cities/2
 **Example Response**:
-```{
+```
+{
   "id": 2,
   "name": "Köln"
-}```
+}
+```
 
 ### Create City (or get existing with same name)
 **URL**: /cities/create
 **Method**: POST
 **Example Request**: /cities/create
-```{
+```
+{
   "name": "Köln"
-}```
+}
+```
 **Example Response**:
-```{
+```
+{
   "id": 2,
   "name": "Köln"
-}```
+}
+```
 
 ## Address
 ### Get Address by Id
@@ -58,7 +66,8 @@
 **Method**: GET
 **Example Request**: /addresses/1
 **Example Response**:
-```{
+```
+{
   "id": 1,
   "roadName": "Bachstraße",
   "houseNumber": "25",
@@ -69,13 +78,15 @@
     "id": 2,
     "name": "Köln"
   }
-}```
+}
+```
 
 ### Update Address
 **URL**: /addresses/*id*
 **Method**: PUT
 **Example Request**: /addresses/1
-```{
+```
+{
   "id": 1,
   "roadName": "Bachstraße",
   "houseNumber": "25",
@@ -83,9 +94,11 @@
   "latitude": 50.9622,
   "longitude": 6.999369,
   "city": 2
-}```
+}
+```
 **Example Response**:
-```{
+```
+{
   "id": 1,
   "roadName": "Bachstraße",
   "houseNumber": "25",
@@ -96,7 +109,8 @@
     "id": 2,
     "name": "Köln"
   }
-}```
+}
+```
 
 
 ### Delete Address
@@ -110,16 +124,19 @@
 **URL**: /addresses/create
 **Method**: POST
 **Example Request**: /addresses/create
-```{
+```
+{
   "roadName": "Bachstraße",
   "houseNumber": "25",
   "postCode": "51063",
   "latitude": 50.9622,
   "longitude": 6.999369,
   "city": 2
-}```
+}
+```
 **Example Response**:
-```{
+```
+{
   "id": 1,
   "roadName": "Bachstraße",
   "houseNumber": "25",
@@ -130,7 +147,8 @@
     "id": 2,
     "name": "Köln"
   }
-}```
+}
+```
 
 ## User
 ### Get User by Id
@@ -138,7 +156,8 @@
 **Method**: GET
 **Example Request**: /users/1
 **Example Response**:
-```{
+```
+{
   "id": 1,
   "userName": "Laura",
   "userRole": "Grün",
@@ -154,7 +173,8 @@
     "fileDir": "test",
     "name": "20170513-test"
   }
-}```
+}
+```
 
 ### Delete User
 **URL**: /users/*id*
@@ -167,15 +187,18 @@
 **URL**: /users/create
 **Method**: POST
 **Example Request**: /users/create
-```{
+```
+{
 	"userName": "Hannah",
 	"password": "secret",
 	"city": 2,
 	"avatar": 1
-}```
+}
+```
 
 **Example Response**:
-```{
+```
+{
 	"id": 10,
 	"userName": "Hannah",
 	"userRole": "Grüner Daumen",
@@ -191,7 +214,8 @@
 		"fileDir": "test",
 		"name": "20170513-test"
 	}
-}```
+}
+```
 
 ## Spot
 ### Get Spot by Id
@@ -199,7 +223,8 @@
 **Method**: GET
 **Example Request**: /spots/1
 **Example Response**:
-```{
+```
+{
   "id": 1,
   "name": "Gemüsegarten",
   "description": "Bau dein eigenes Gemüse an.",
@@ -233,7 +258,8 @@
       "name": "Köln"
     }
   }
-}```
+}
+```
 
 ### Delete Spot
 **URL**: /spots/*id*
@@ -246,16 +272,19 @@
 **URL**: /spots/create
 **Method**: POST
 **Example Request**: /spots/create
-```{
+```
+{
   "name": "Ringgarten",
   "description": "Frohe Natur direkt am Hansaring.",
   "size": 32,
   "owner": 8,
   "address": 3
-}```
+}
+```
 
 **Example Response**:
-```{
+```
+{
   "id": 2,
   "name": "Ringgarten",
   "description": "Frohe Natur direkt am Hansaring.",
@@ -289,4 +318,5 @@
       "name": "Köln"
     }
   }
-}```
+}
+```
