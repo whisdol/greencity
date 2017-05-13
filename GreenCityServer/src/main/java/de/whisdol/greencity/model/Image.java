@@ -3,8 +3,6 @@ package de.whisdol.greencity.model;
 import de.whisdol.greencity.GreencityserverApplication;
 import de.whisdol.greencity.dao.ImageDAO;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 
 /**
@@ -24,27 +22,27 @@ public class Image {
         this.id = id;
         this.type = type;
         this.fileDir = fileDir;
-        setName(name);
+        this.name = name;
     }
 
     public Image(String type, String fileDir, String name) {
         this.type = type;
         this.fileDir = fileDir;
-        setName(name);
+        this.name = name;
     }
 
     public Image(long id, String type, String fileDir, String name, Base64 file) {
         this.id = id;
         this.type = type;
         this.fileDir = fileDir;
-        setName(name);
+        this.name = name;
         this.file = file;
     }
 
     public Image(String type, String fileDir, String name, Base64 file) {
         this.type = type;
         this.fileDir = fileDir;
-        setName(name);
+        this.name = name;
         this.file = file;
     }
 
@@ -86,8 +84,6 @@ public class Image {
     }
 
     public void setName(String name) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddhhmmss");
-        String timestamp = LocalDateTime.now().format(formatter);
-        this.name = timestamp + name;
+        this.name = name;
     }
 }
