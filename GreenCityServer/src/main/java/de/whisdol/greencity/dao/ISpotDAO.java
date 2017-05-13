@@ -21,7 +21,7 @@ public interface ISpotDAO
 
     List<Spot> selectAllSpots();
 
-    List<Spot> selectAllSpotsbyCity(long cityId);
+    List<Spot> selectAllSpotsByCity(long cityId);
 
     void deleteSpot(long id);
 

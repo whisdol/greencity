@@ -2,9 +2,7 @@ package de.whisdol.greencity.api;
 
 import de.whisdol.greencity.GreencityserverApplication;
 import de.whisdol.greencity.dao.SpotDAO;
-import de.whisdol.greencity.dao.UserDAO;
 import de.whisdol.greencity.model.Spot;
-import de.whisdol.greencity.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
