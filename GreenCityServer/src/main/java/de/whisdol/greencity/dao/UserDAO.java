@@ -59,7 +59,7 @@ public class UserDAO implements IUserDAO {
     @Override
     public List<User> selectAllUsers() {
         JdbcTemplate selectAll = new JdbcTemplate(dataSource);
-        return (List<User>) selectAll.queryForObject("SELECT user_id, user_name, password, user_role, avatar_id, city_id, last_activity, comment_count FROM user",
+        return (List<User>) selectAll.query("SELECT user_id, user_name, password, user_role, avatar_id, city_id, last_activity, comment_count FROM user",
                 new UserRowMapper());
     }
 
