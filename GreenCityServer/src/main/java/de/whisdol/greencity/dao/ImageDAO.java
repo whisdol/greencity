@@ -34,7 +34,7 @@ public class ImageDAO implements IImageDAO {
         JdbcTemplate select = new JdbcTemplate(dataSource);
         Image image;
         try {
-            image = (Image) select.query("SELECT image_id, image_type, file_dir, image_name FROM images WHERE image_id = ?",
+            image = (Image) select.queryForObject("SELECT image_id, image_type, file_dir, image_name FROM images WHERE image_id = ?",
                     new Object[]{id},
                     new ImageRowMapper());
         } catch (Exception e) {

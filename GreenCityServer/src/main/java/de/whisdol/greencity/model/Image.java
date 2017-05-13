@@ -3,9 +3,8 @@ package de.whisdol.greencity.model;
 import de.whisdol.greencity.GreencityserverApplication;
 import de.whisdol.greencity.dao.ImageDAO;
 
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Base64;
 
 /**
@@ -87,8 +86,8 @@ public class Image {
     }
 
     public void setName(String name) {
-        Format formatter = new SimpleDateFormat("YYYYMMddhhmmss");
-        String timestamp = formatter.format(LocalDateTime.now());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddhhmmss");
+        String timestamp = LocalDateTime.now().format(formatter);
         this.name = timestamp + name;
     }
 }

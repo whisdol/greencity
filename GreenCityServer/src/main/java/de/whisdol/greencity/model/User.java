@@ -50,7 +50,7 @@ public class User {
 
     public User(long userId) {
         this.id = userId;
-        UserDAO userDao = (UserDAO) GreencityserverApplication.context.getBean("UserDAO");
+        UserDAO userDao = (UserDAO) GreencityserverApplication.context.getBean("userDAO");
         User dbUser = userDao.selectUserById(userId);
         this.userName = dbUser.userName;
         this.password = dbUser.password;
