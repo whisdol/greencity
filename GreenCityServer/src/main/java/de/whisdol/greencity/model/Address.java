@@ -1,7 +1,7 @@
 package de.whisdol.greencity.model;
 
 import de.whisdol.greencity.GreencityserverApplication;
-import de.whisdol.greencity.dao.CityDAO;
+import de.whisdol.greencity.dao.AddressDAO;
 
 /**
  * Created by cedric on 22.04.17.
@@ -66,6 +66,18 @@ public class Address {
         this.latitude = address.latitude;
         this.longitude = address.longitude;
         this.city = address.city;
+    }
+
+    public Address(long id) {
+        this.id = id;
+        AddressDAO addressDao = (AddressDAO) GreencityserverApplication.context.getBean("addressDAO");
+        Address dbAddress = addressDao.selectAddressById(id);
+        this.roadName = dbAddress.roadName;
+        this.houseNumber = dbAddress.houseNumber;
+        this.postCode = dbAddress.postCode;
+        this.latitude = dbAddress.latitude;
+        this.longitude = dbAddress.longitude;
+        this.city = dbAddress.city;
     }
 
     public long getId() {
