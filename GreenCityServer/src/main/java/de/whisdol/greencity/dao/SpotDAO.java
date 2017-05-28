@@ -80,6 +80,8 @@ public class SpotDAO implements ISpotDAO {
 
     }
 
+
+
     public Spot getSpotBySpot(Spot spot) {
         return selectSpotByName(spot.getName());
     }
