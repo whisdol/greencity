@@ -401,3 +401,179 @@
   }
 ]
 ```
+
+# Spot Maintain Actions (_Worklog Entries_)
+## Get Actions for Spot
+**URL**: /spots/*spotId*/actions  
+**Method**: GET  
+**Example Request**: /spots/2/actions  
+**Example Response**:  
+```
+[
+  {
+    "id": 1,
+    "spotId": 2,
+    "maintainDate": 1496008862000,
+    "user": {
+      "id": 3,
+      "userName": "Werner",
+      "userRole": "Grün",
+      "city": {
+        "id": 2,
+        "name": "Köln"
+      },
+      "lastActivity": 1494710535000,
+      "commentCount": 0,
+      "avatar": {
+        "id": 1,
+        "type": "png",
+        "fileDir": "test",
+        "name": "20170513-test"
+      }
+    },
+    "shortDescription": "Unkrautjähten",
+    "description": "Heute habe ich das Unkraut gejähtet und den nervigen Löwenzahn entfernt. Endlich sieht der Ringgarten wieder schön aus!"
+  },
+  {
+    "id": 3,
+    "spotId": 2,
+    "maintainDate": 1496009609000,
+    "user": {
+      "id": 3,
+      "userName": "Werner",
+      "userRole": "Grün",
+      "city": {
+        "id": 2,
+        "name": "Köln"
+      },
+      "lastActivity": 1494710535000,
+      "commentCount": 0,
+      "avatar": {
+        "id": 1,
+        "type": "png",
+        "fileDir": "test",
+        "name": "20170513-test"
+      }
+    },
+    "shortDescription": "Bunte Tulpen",
+    "description": "Mit den neu gesetzen Tulpenknollen sieht der Ringgarten in ein paar Wochen bestimmt wunderbar farbenfroh aus. Ich freue mich drauf! Wenn es länger trocken bleibt, bitte ab und zu gießen."
+  }
+]
+```
+
+## Create Action
+**URL**: /spots/*spotId*/actions/create  
+**Method**: POST  
+**Example Request**: /spots/2/actions/create  
+```
+{
+  "user": 3,
+  "spotId": 2,
+  "shortDescription": "Unkrautjähten",
+  "description": "Heute habe ich das Unkraut gejähtet und den nervigen Löwenzahn entfernt. Endlich sieht der Spot wieder schön aus"
+}
+```
+**Example Response**:  
+```
+{
+  "id": 1,
+  "spotId": 2,
+  "maintainDate": 1496008862000,
+  "user": {
+    "id": 3,
+    "userName": "Werner",
+    "userRole": "Grün",
+    "city": {
+      "id": 2,
+      "name": "Köln"
+    },
+    "lastActivity": 1494710535000,
+    "commentCount": 0,
+    "avatar": {
+      "id": 1,
+      "type": "png",
+      "fileDir": "test",
+      "name": "20170513-test"
+    }
+  },
+  "shortDescription": "Unkrautjähten",
+  "description": "Heute habe ich das Unkraut gejähtet und den nervigen Löwenzahn entfernt. Endlich sieht der Ringgarten wieder schön aus!"
+}
+```
+
+## Get Single Action
+**URL**: /spots/*spotId*/actions/*actionId*  
+**Method**: GET  
+**Example Request**: /spots/2/actions/1  
+**Example Response**:  
+```
+{
+  "id": 1,
+  "spotId": 2,
+  "maintainDate": 1496008862000,
+  "user": {
+    "id": 3,
+    "userName": "Werner",
+    "userRole": "Grün",
+    "city": {
+      "id": 2,
+      "name": "Köln"
+    },
+    "lastActivity": 1494710535000,
+    "commentCount": 0,
+    "avatar": {
+      "id": 1,
+      "type": "png",
+      "fileDir": "test",
+      "name": "20170513-test"
+    }
+  },
+  "shortDescription": "Unkrautjähten",
+  "description": "Heute habe ich das Unkraut gejähtet und den nervigen Löwenzahn entfernt. Endlich sieht der Ringgarten wieder schön aus!"
+}
+```
+
+## Update Action
+**URL**: /spots/*spotId*/actions/*actionId*  
+**Method**: PUT  
+**Example Request**: /spots/2/actions/1  
+```
+{  
+  "shortDescription": "Unkrautjähten",
+  "description": "Heute habe ich das Unkraut gejähtet und den nervigen Löwenzahn entfernt. Endlich sieht der Ringgarten wieder schön aus!"
+}
+```
+**Example Response**:  
+```
+{
+  "id": 1,
+  "spotId": 2,
+  "maintainDate": 1496008862000,
+  "user": {
+    "id": 3,
+    "userName": "Werner",
+    "userRole": "Grün",
+    "city": {
+      "id": 2,
+      "name": "Köln"
+    },
+    "lastActivity": 1494710535000,
+    "commentCount": 0,
+    "avatar": {
+      "id": 1,
+      "type": "png",
+      "fileDir": "test",
+      "name": "20170513-test"
+    }
+  },
+  "shortDescription": "Unkrautjähten",
+  "description": "Heute habe ich das Unkraut gejähtet und den nervigen Löwenzahn entfernt. Endlich sieht der Ringgarten wieder schön aus!"
+}
+```
+
+## Delete Action
+**URL**: /spots/*spotId*/actions/*actionId*  
+**Method**: DELETE  
+**Example Request**: /spots/2/actions/3  
+**Example Response**:  
+(Some success message)  
