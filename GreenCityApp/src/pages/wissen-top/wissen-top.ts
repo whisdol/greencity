@@ -21,8 +21,8 @@ export class WissenTopPage {
           avatar: 'assets/img/laura-avatar.jpg',
           name: 'Laura'
         },
-        date: 'vor 6 Stunde',
-        image: 'assets/img/advance-card-bttf.png',
+        date: 'vor 6 Stunden',
+        image: 'assets/img/beet-7.png',
         content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.',
       },
       {
@@ -31,7 +31,7 @@ export class WissenTopPage {
           name: 'Max'
         },
         date: 'vor 7 Stunden',
-        image: 'assets/img/advance-card-jp.jpg',
+        image: 'assets/img/beet-9.png',
         content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.'
       }
     ];

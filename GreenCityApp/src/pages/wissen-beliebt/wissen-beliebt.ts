@@ -22,7 +22,7 @@ export class WissenBeliebtPage {
           name: 'Marie'
         },
         date: 'vor 2 Stunden',
-        image: 'assets/img/advance-card-bttf.png',
+        image: 'assets/img/beet-1.png',
         content: 'Hallo Leute! Hier möchte ich euch zeigen, wie ich das tolle Blumenbeet an der Feldstraße verschönert habe.',
       },
       {
@@ -31,7 +31,7 @@ export class WissenBeliebtPage {
           name: 'Alexander'
         },
         date: 'vor 3 Stunden',
-        image: 'assets/img/advance-card-tmntr.jpg',
+        image: 'assets/img/beet-4.png',
         content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.'
       },
       {
@@ -40,7 +40,7 @@ export class WissenBeliebtPage {
           name: 'Laura'
         },
         date: 'vor 3 Stunden',
-        image: 'assets/img/advance-card-jp.jpg',
+        image: 'assets/img/beet-5.png',
         content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.'
       }
     ];

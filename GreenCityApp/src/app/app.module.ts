@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { Http } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Storage, IonicStorageModule } from '@ionic/storage';
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 import { MyApp } from './app.component';
 
@@ -12,6 +13,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
 import { ItemCreatePage } from '../pages/item-create/item-create';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { MapPage } from '../pages/map/map';
+import { SpotDetailPage } from '../pages/spot-detail/spot-detail'
 import { WissenPage } from '../pages/wissen/wissen';
 import { WissenBeliebtPage } from '../pages/wissen-beliebt/wissen-beliebt';
 import { WissenNeuPage } from '../pages/wissen-neu/wissen-neu';
@@ -68,6 +70,7 @@ let pages = [
   ItemDetailPage,
   ItemCreatePage,
   MapPage,
+  SpotDetailPage,
   WissenPage,
   WissenBeliebtPage,
   WissenNeuPage,
@@ -80,7 +83,7 @@ let pages = [
   CommunityUgalleryPage,
   NachrichtenPage,
   EinstellungenPage,
-  UeberPage
+  UeberPage,
 ];
 
 export function declarations() {
@@ -112,7 +115,8 @@ export function providers() {
       provide: TranslateLoader,
       useFactory: (createTranslateLoader),
       deps: [Http]
-    })
+    }),
+    Ionic2RatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: entryComponents(),

@@ -22,7 +22,7 @@ export class WissenNeuPage {
           name: 'Tim'
         },
         date: 'vor 1 Stunde',
-        image: 'assets/img/advance-card-bttf.png',
+        image: 'assets/img/beet-6.png',
         content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
       },
       {
@@ -31,7 +31,7 @@ export class WissenNeuPage {
           name: 'Chiara'
         },
         date: 'vor 1 Stunde',
-        image: 'assets/img/advance-card-jp.jpg',
+        image: 'assets/img/beet-3.png',
         content: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.'
       }
     ];
