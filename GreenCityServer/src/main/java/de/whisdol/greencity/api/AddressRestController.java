@@ -21,23 +21,27 @@ public class AddressRestController {
         this.addressDao = (AddressDAO) GreencityserverApplication.context.getBean("addressDAO");
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{addressId}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     Address getAddress(@PathVariable long addressId) {
         return addressDao.selectAddressById(addressId);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{addressId}", method = RequestMethod.PUT, produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> updateAddress(@PathVariable long addressId, @RequestBody Address address) {
         addressDao.updateAddress(addressId, address);
         return ResponseEntity.ok(addressDao.selectAddressById(addressId));
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{addressId}", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> deleteAddress(@PathVariable long addressId) {
         addressDao.deleteAddress(addressId);
         return ResponseEntity.ok().build();
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> createAddress(@RequestBody Address requestAddress) {
         Address address;

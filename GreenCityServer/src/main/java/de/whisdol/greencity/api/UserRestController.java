@@ -21,17 +21,20 @@ public class UserRestController {
         this.userDao = (UserDAO) GreencityserverApplication.context.getBean("userDAO");
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{userId}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     User getUser(@PathVariable long userId) {
         return userDao.selectUserById(userId);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{userId}", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> deleteUser(@PathVariable long userId) {
         userDao.deleteUser(userId);
         return ResponseEntity.ok().build();
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> createUser(@RequestBody User requestUser) {
         User user;

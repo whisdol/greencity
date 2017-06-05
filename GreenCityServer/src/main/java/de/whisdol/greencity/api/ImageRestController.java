@@ -21,17 +21,20 @@ public class ImageRestController {
         this.imageDao = (ImageDAO) GreencityserverApplication.context.getBean("imageDAO");
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{imageId}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     Image getImage(@PathVariable long imageId) {
         return imageDao.selectImageById(imageId);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{imageId}", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> deleteImage(@PathVariable long imageId) {
         imageDao.deleteImageById(imageId);
         return ResponseEntity.ok().build();
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> createImage(@RequestBody Image requestImage) {
         Image image;

@@ -25,6 +25,7 @@ public class SpotMaintainActionRestController {
         this.actionDao = (SpotMaintainActionDAO) GreencityserverApplication.context.getBean("spotMaintainActionDAO");
     }
 
+    @CrossOrigin
     @GetMapping(value = { "", "/" }, produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> getActionsBySpotId(@PathVariable long spotId) {
         List<SpotMaintainAction> actions;
@@ -42,6 +43,7 @@ public class SpotMaintainActionRestController {
         return ResponseEntity.ok(actions);
     }
 
+    @CrossOrigin
     @PostMapping(value = "/create", produces = { MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> createAction(@PathVariable long spotId, @RequestBody SpotMaintainAction requestAction) {
         requestAction.setSpotId(spotId);
@@ -56,6 +58,7 @@ public class SpotMaintainActionRestController {
         return ResponseEntity.ok(action);
     }
 
+    @CrossOrigin
     @PutMapping(value = "/{actionId}", produces = { MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> updateAction(@PathVariable long actionId, @RequestBody SpotMaintainAction action) {
         try {
@@ -66,6 +69,7 @@ public class SpotMaintainActionRestController {
         return ResponseEntity.ok().build();
     }
 
+    @CrossOrigin
     @GetMapping(value = "/{actionId}", produces = { MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> getAction(@PathVariable long actionId, @PathVariable long spotId) {
         SpotMaintainAction action;
@@ -83,6 +87,7 @@ public class SpotMaintainActionRestController {
 
     }
 
+    @CrossOrigin
     @DeleteMapping(value = "/{actionId}", produces = { MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> deleteAction(@PathVariable long actionId) {
         actionDao.deleteSpotMaintainAction(actionId);
