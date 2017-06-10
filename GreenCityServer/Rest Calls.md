@@ -402,18 +402,18 @@
 ]
 ```
 
-# Spot Maintain Actions (_Worklog Entries_)
-## Get Actions for Spot
-**URL**: /spots/*spotId*/actions  
+# Spot Work Entries
+## Get Work Entries for Spot
+**URL**: /spots/*spotId*/workEntries  
 **Method**: GET  
-**Example Request**: /spots/2/actions  
+**Example Request**: /spots/2/workEntries  
 **Example Response**:  
 ```
 [
   {
     "id": 1,
     "spotId": 2,
-    "maintainDate": 1496008862000,
+    "entryDate": 1496008862000,
     "user": {
       "id": 3,
       "userName": "Werner",
@@ -437,7 +437,7 @@
   {
     "id": 3,
     "spotId": 2,
-    "maintainDate": 1496009609000,
+    "entryDate": 1496009609000,
     "user": {
       "id": 3,
       "userName": "Werner",
@@ -461,10 +461,10 @@
 ]
 ```
 
-## Create Action
-**URL**: /spots/*spotId*/actions/create  
+## Create Work Entry
+**URL**: /spots/*spotId*/workEntries/create  
 **Method**: POST  
-**Example Request**: /spots/2/actions/create  
+**Example Request**: /spots/2/workEntries/create  
 ```
 {
   "user": 3,
@@ -478,7 +478,7 @@
 {
   "id": 1,
   "spotId": 2,
-  "maintainDate": 1496008862000,
+  "entryDate": 1496008862000,
   "user": {
     "id": 3,
     "userName": "Werner",
@@ -501,16 +501,16 @@
 }
 ```
 
-## Get Single Action
-**URL**: /spots/*spotId*/actions/*actionId*  
+## Get Single Work Entry
+**URL**: /spots/*spotId*/workEntries/*workEntryId*  
 **Method**: GET  
-**Example Request**: /spots/2/actions/1  
+**Example Request**: /spots/2/workEntries/1  
 **Example Response**:  
 ```
 {
   "id": 1,
   "spotId": 2,
-  "maintainDate": 1496008862000,
+  "entryDate": 1496008862000,
   "user": {
     "id": 3,
     "userName": "Werner",
@@ -533,10 +533,10 @@
 }
 ```
 
-## Update Action
-**URL**: /spots/*spotId*/actions/*actionId*  
+## Update Work Entry
+**URL**: /spots/*spotId*/workEntries/*workEntryId*  
 **Method**: PUT  
-**Example Request**: /spots/2/actions/1  
+**Example Request**: /spots/2/workEntries/1  
 ```
 {  
   "shortDescription": "Unkrautjähten",
@@ -548,7 +548,7 @@
 {
   "id": 1,
   "spotId": 2,
-  "maintainDate": 1496008862000,
+  "entryDate": 1496008862000,
   "user": {
     "id": 3,
     "userName": "Werner",
@@ -571,9 +571,9 @@
 }
 ```
 
-## Delete Action
-**URL**: /spots/*spotId*/actions/*actionId*  
+## Delete Work Entry
+**URL**: /spots/*spotId*/workEntries/*workEntryId*  
 **Method**: DELETE  
-**Example Request**: /spots/2/actions/3  
+**Example Request**: /spots/2/workEntries/3  
 **Example Response**:  
 (Some success message)  
