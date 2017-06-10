@@ -24,6 +24,7 @@ public class SpotWorkEntryRestController {
     }
 
     // Get all entries for a defined spot
+    @CrossOrigin
     @GetMapping(value = { "", "/" }, produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> getWorkEntriesBySpotId(@PathVariable long spotId) {
         List<SpotWorkEntry> entries;
@@ -44,6 +45,7 @@ public class SpotWorkEntryRestController {
         return ResponseEntity.ok(entries);
     }
 
+    @CrossOrigin
     @PostMapping(value = "/create", produces = { MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> createWorkEntry(@PathVariable long spotId, @RequestBody SpotWorkEntry requestEntry) {
         requestEntry.setSpotId(spotId);
@@ -62,6 +64,7 @@ public class SpotWorkEntryRestController {
     }
 
     // Update existing workEntry
+    @CrossOrigin
     @PutMapping(value = "/{workEntryId}", produces = { MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> updateWorkEntry(@PathVariable long workEntryId, @RequestBody SpotWorkEntry workEntry) {
         try {
@@ -73,6 +76,7 @@ public class SpotWorkEntryRestController {
     }
 
     // Get single entry
+    @CrossOrigin
     @GetMapping(value = "/{workEntryId}", produces = { MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> getWorkEntry(@PathVariable long workEntryId, @PathVariable long spotId) {
         SpotWorkEntry entry;
@@ -94,6 +98,7 @@ public class SpotWorkEntryRestController {
     }
 
     // Delete entry
+    @CrossOrigin
     @DeleteMapping(value = "/{workEntryId}", produces = { MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> deleteWorkEntry(@PathVariable long workEntryId) {
         spotWorkEntryDAO.deleteSpotWorkEntry(workEntryId);
