@@ -27,17 +27,20 @@ public class SpotRestController {
         this.cityDao = (CityDAO) GreencityserverApplication.context.getBean("cityDAO");
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{spotId}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     Spot getSpot(@PathVariable long spotId) {
         return spotDao.selectSpotById(spotId);
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{spotId}", method = RequestMethod.DELETE, produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> deleteSpot(@PathVariable long spotId) {
         spotDao.deleteSpot(spotId);
         return ResponseEntity.ok().build();
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> createImage(@RequestBody Spot requestSpot) {
         Spot spot;
@@ -55,11 +58,13 @@ public class SpotRestController {
         return ResponseEntity.ok().build();
     }
 
+    @CrossOrigin
     @GetMapping(value = "/search", params = "cityId", produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> searchSpotsById(@RequestParam long cityId) {
         return searchSpots(cityId);
     }
 
+    @CrossOrigin
     @GetMapping(value = "/search", params = "cityName", produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> searchSpotsByName(@RequestParam String cityName) {
         long cityId = -1;

@@ -1,5 +1,6 @@
 package de.whisdol.greencity.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import de.whisdol.greencity.GreencityserverApplication;
 import de.whisdol.greencity.dao.ImageDAO;
 
@@ -85,5 +86,10 @@ public class Image {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @JsonProperty
+    public String path() {
+        return "http://greencity.whisdol.de/" + fileDir + "/" + name + "." + type;
     }
 }
