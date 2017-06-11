@@ -2,8 +2,11 @@ package de.whisdol.greencity.api;
 
 import de.whisdol.greencity.GreencityserverApplication;
 import de.whisdol.greencity.dao.CityDAO;
+import de.whisdol.greencity.dao.ImageDAO;
 import de.whisdol.greencity.dao.SpotDAO;
+import de.whisdol.greencity.model.Image;
 import de.whisdol.greencity.model.Spot;
+import jdk.nashorn.internal.ir.CatchNode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -20,11 +23,13 @@ import java.util.List;
 public class SpotRestController {
     private final SpotDAO spotDao;
     private final CityDAO cityDao;
+    private final ImageDAO imageDao;
 
     @Autowired
     SpotRestController() {
         this.spotDao = (SpotDAO) GreencityserverApplication.context.getBean("spotDAO");
         this.cityDao = (CityDAO) GreencityserverApplication.context.getBean("cityDAO");
+        this.imageDao = (ImageDAO) GreencityserverApplication.context.getBean("imageDAO");
     }
 
     @CrossOrigin
@@ -54,10 +59,6 @@ public class SpotRestController {
         return ResponseEntity.ok(spot);
     }
 
-    ResponseEntity<?> addWorkLogEntry(@PathVariable long spotId, @RequestBody String spotComment) {
-        return ResponseEntity.ok().build();
-    }
-
     @CrossOrigin
     @GetMapping(value = "/search", params = "cityId", produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> searchSpotsById(@RequestParam long cityId) {
@@ -78,6 +79,42 @@ public class SpotRestController {
         return searchSpots(cityId);
     }
 
+    @CrossOrigin
+    @GetMapping(value = "/{spotId}/images", produces = {MediaType.APPLICATION_JSON_VALUE})
+    ResponseEntity<?> getSpotImages(@PathVariable long spotId) {
+        try {
+
+        } catch (ObjectNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        return ResponseEntity.ok(imageDao.getImagesBySpotId(spotId));
+    }
+
+    @CrossOrigin
+    @PostMapping(value = "/{spotId}/images/add", produces = {MediaType.APPLICATION_JSON_VALUE})
+    ResponseEntity<?> addImageToSpot(@PathVariable long spotId, @RequestBody Image requestImage) {
+        long imageId = requestImage.getId();
+        Spot spot;
+        Image verifiedImage;
+        try {
+            spot = spotDao.selectSpotById(spotId);
+            verifiedImage = imageDao.selectImageById(imageId);
+        } catch (ObjectNotFoundException e) {
+            // Either the Spot or the Image does not exist
+            return ResponseEntity.badRequest().body("{ \"error\": \"" + e.getMessage() + "\"}");
+        }
+        try {
+            imageDao.addImageToSpot(spotId, imageId);
+        } catch (Exception e) {
+            // The insert failed
+            return ResponseEntity.badRequest().body("{ \"error\": \"Image with ID " + imageId +
+                    " has already been added to Spot with ID " + spotId + "\"}");
+        }
+        return ResponseEntity.ok().build();
+    }
 
     private ResponseEntity<?> searchSpots(long cityId) {
         List<Spot> spots = spotDao.selectAllSpotsByCity(cityId);

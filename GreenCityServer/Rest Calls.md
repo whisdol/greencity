@@ -402,6 +402,43 @@
 ]
 ```
 
+# Spot Images
+## Get Spot Images
+**URL**: /spots/*spotId*/images  
+**Method**: GET  
+**Example Request**: /spots/2/images  
+**Example Response**:  
+```
+[
+  {
+    "id": 4,
+    "type": "png",
+    "fileDir": "images",
+    "name": "beet-4",
+    "path": "http://greencity.whisdol.de/images/beet-4.png"
+  },
+  {
+    "id": 5,
+    "type": "png",
+    "fileDir": "images",
+    "name": "beet-5",
+    "path": "http://greencity.whisdol.de/images/beet-5.png"
+  }
+]
+```
+
+## Add Spot Image
+**URL**: /spots/*spotId*/images/add  
+**Method**: GET  
+**Example Request**: /spots/2/images/add  
+```
+{  
+   "id":5
+}
+```
+**Example Response**:  
+*(Some success message)*
+
 # Spot Work Entries
 ## Get Work Entries for Spot
 **URL**: /spots/*spotId*/workEntries  
