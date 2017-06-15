@@ -1,14 +1,27 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SpotDetailPage } from '../spot-detail/spot-detail'
+import { SpotService } from '../../providers/spot-service';
 
 declare var google;
 
 @Component({
 	selector: 'page-map',
-	templateUrl: 'map.html'
+	templateUrl: 'map.html',
+	providers: [SpotService]
 })
 export class MapPage {
+
+	public markers: any;
+
+	input: {cityId: string} = {
+				cityId: '2'
+			};
+
+	// input = {
+	// 			cityId: '2',
+	// 			cityName: ''
+	// 		};
 
 	@ViewChild('map') mapElement: ElementRef;
 
@@ -16,7 +29,8 @@ export class MapPage {
 	mapInitialised: boolean = false;
 	apiKey: string = "AIzaSyBu9-88Bzcq4LlXqeQgXgT77iCW5q6X5Gw";
 
-	constructor(public navCtrl: NavController) {
+	constructor(public navCtrl: NavController,
+						  public spotService: SpotService ) {
 		console.log("Initializing MapPage, called Constructor");
 		this.loadGoogleMaps();
 	}
@@ -73,24 +87,26 @@ export class MapPage {
 		console.log("adding markers to map");
 		let spotMarker = 'assets/img/spotmarker.png';
 
-		let markers = [{'id': 12345, 'name': 'Escher Gärtchen', 'description': 'Das kleine Gärtchen an der Escherstr.', 'rating': 3.5, 'owner': 'Franz53', 'img': 'assets/img/spot_image.png', 'city': 'Köln', 'cityrank': 66, 'lat': 50.955639, 'lng': 6.948812},
-						{'id': 12346, 'name': 'Wickraths Strauß', 'description': 'Blümchen! Schöne Blumen zu jeder Jahreszeit.', 'rating': 4.5, 'owner': 'Sandra', 'img': 'assets/img/spot_image.png', 'city': 'Köln', 'cityrank': 13, 'lat': 50.954375, 'lng': 6.952084},
-						{'id': 12347, 'name': 'Kasparle', 'description': 'Gelbe Pflänzlein bevorzugt.', 'rating': 3.5, 'owner': 'Günni', 'img': 'assets/img/spot_image.png', 'lat': 50.953486, 'city': 'Köln', 'cityrank': 65, 'lng': 6.953065},
-						{'id': 12348, 'name': 'Ringschen', 'description': 'Direkt am Hansaring: die kleine Oase.', 'rating': 5, 'owner': 'Haxn Herb', 'img': 'assets/img/spot_image.png', 'city': 'Köln', 'cityrank': 1, 'lat': 50.949931, 'lng': 6.955110},];
+	    this.spotService.search(this.input)
+	      .then(spot => {
+	        this.markers = spot;
 
-		markers.forEach((marker) => {
-			let pos = new google.maps.LatLng(marker['lat'], marker['lng']);
-			let m = new google.maps.Marker({
-				position: pos,
-				icon: spotMarker,
-				title: marker['name']
-			});
-			m.setMap(this.map);
+					this.markers.forEach((marker) => {
+						let pos = new google.maps.LatLng(marker.address['latitude'], marker.address['longitude']);
+						let m = new google.maps.Marker({
+							position: pos,
+							icon: spotMarker,
+							title: marker['name']
+						});
+						m.setMap(this.map);
 
-			let localNavCtrl = this.navCtrl;
-			m.addListener('click', function() {
-				localNavCtrl.push(SpotDetailPage, { id: marker['id'] })
-			});
-		});
+						let localNavCtrl = this.navCtrl;
+						m.addListener('click', function() {
+							localNavCtrl.push(SpotDetailPage, { id: marker['id'] })
+						});
+					})
+
+	      });
+
 	}
 }

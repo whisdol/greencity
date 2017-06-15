@@ -33,6 +33,13 @@ import { Api } from '../providers/api';
 import { Settings } from '../providers/settings';
 import { Items } from '../mocks/providers/items';
 
+import { CityService } from '../providers/city-service';
+import { AddressService } from '../providers/address-service';
+import { UserService } from '../providers/user-service';
+import { SpotService } from '../providers/spot-service';
+import { SpotImageService } from '../providers/spot-image-service';
+import { SpotWorkEntryService } from '../providers/spot-work-entry-service';
+
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
 
 // The translate loader needs to know where to load i18n files
@@ -99,6 +106,12 @@ export function providers() {
     User,
     Api,
     Items,
+    CityService,
+    AddressService,
+    UserService,
+    SpotService,
+    SpotImageService,
+    SpotWorkEntryService,
 
     { provide: Settings, useFactory: provideSettings, deps: [ Storage ] },
     // Keep this to enable Ionic's runtime error handling during development
