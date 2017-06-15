@@ -6,6 +6,7 @@ import de.whisdol.greencity.model.Image;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
+import java.sql.JDBCType;
 import java.util.List;
 
 /**
@@ -50,6 +51,20 @@ public class ImageDAO implements IImageDAO {
         JdbcTemplate delete = new JdbcTemplate(dataSource);
         delete.update("DELETE FROM images WHERE image_id = ?",
                 new Object[]{id});
+    }
+
+    public List<Image> getImagesBySpotId(long spotId) {
+        JdbcTemplate join = new JdbcTemplate(dataSource);
+        return join.query("SELECT spot_id, spot_images.image_id, image_type, file_dir, image_name FROM spot_images INNER JOIN images ON spot_images.image_id = images.image_id WHERE spot_id = ?",
+                new Object[] {spotId},
+                new ImageRowMapper());
+    }
+
+    public void addImageToSpot(long spotId, long imageId) {
+        JdbcTemplate insert = new JdbcTemplate(dataSource);
+        insert.update("INSERT INTO spot_images (spot_id, image_id) VALUES (?, ?)",
+                new Object[] {spotId, imageId});
+
     }
 
     public Image getImageByImage(Image image) {

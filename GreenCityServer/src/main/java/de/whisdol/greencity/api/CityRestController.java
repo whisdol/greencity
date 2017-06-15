@@ -24,11 +24,13 @@ public class CityRestController {
         this.cityDao = (CityDAO) GreencityserverApplication.context.getBean("cityDAO");
     }
 
+    @CrossOrigin
     @RequestMapping(value = "", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     List<City> getAllCities() {
         return cityDao.selectAllCities();
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/{cityId}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     City getCity(@PathVariable long cityId) {
         return cityDao.selectCityById(cityId);
@@ -39,6 +41,7 @@ public class CityRestController {
      * @param requestCity { "name": "Name of the City" }
      * @return The City Object
      */
+    @CrossOrigin
     @RequestMapping(value = "/create", method = RequestMethod.POST, produces = {MediaType.APPLICATION_JSON_VALUE})
     ResponseEntity<?> createCity(@RequestBody City requestCity) {
 

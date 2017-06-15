@@ -8,10 +8,10 @@ import java.sql.SQLException;
 /**
  * Created by cedric on 22.04.17.
  */
-public class SpotMaintainActionRowMapper implements RowMapper {
+public class SpotWorkEntryRowMapper implements RowMapper {
     @Override
     public Object mapRow(ResultSet resultSet, int i) throws SQLException {
-        SpotMaintainActionResultSetExtractor extractor = new SpotMaintainActionResultSetExtractor();
+        SpotWorkEntryResultSetExtractor extractor = new SpotWorkEntryResultSetExtractor();
         return extractor.extractData(resultSet);
     }
 }
