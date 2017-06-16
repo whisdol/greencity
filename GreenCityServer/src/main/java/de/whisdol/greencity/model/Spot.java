@@ -1,17 +1,19 @@
 package de.whisdol.greencity.model;
 
-import de.whisdol.greencity.dao.SpotDAO;
-
 /**
  * Created by cedric on 22.04.17.
  */
-public class Spot extends SpotDAO {
+public class Spot {
     private long id;
     private String name;
     private String description;
     private float size;
+    private int ranking;
+    private int numberOfSpots;
+    private float score;
     private User owner;
     private Address address;
+
 
     public Spot(long id, String name, String description, float size, User owner, Address address) {
         this.id = id;
@@ -20,10 +22,18 @@ public class Spot extends SpotDAO {
         this.size = size;
         this.owner = owner;
         this.address = address;
+
+        // ToDo: Don't use static values
+        this.ranking = 5;
+        this.numberOfSpots = 34;
+        this.score = 4.5f;
     }
 
     public Spot() {
-
+        // ToDo: Don't use static values
+        this.ranking = 5;
+        this.numberOfSpots = 34;
+        this.score = 4.5f;
     }
 
     public long getId() {
@@ -80,5 +90,29 @@ public class Spot extends SpotDAO {
 
     public void setAddress(long addressId) {
         this.address = new Address(addressId);
+    }
+
+    public int getRanking() {
+        return ranking;
+    }
+
+    public void setRanking(int ranking) {
+        this.ranking = ranking;
+    }
+
+    public int getNumberOfSpots() {
+        return numberOfSpots;
+    }
+
+    public void setNumberOfSpots(int numberOfSpots) {
+        this.numberOfSpots = numberOfSpots;
+    }
+
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
     }
 }
