@@ -15,38 +15,38 @@
 
 <ion-content padding>
 
-	<h1 text-center>{{spot.name}}</h1>
+	<h1 text-center>{{spotDetail.name}}</h1>
 	<div class="spot-images">
 		<ion-slides pager>
-			<ion-slide *ngFor="let image of spot.img">
-				<img [src]="image" class="slide-image"/>
+			<ion-slide *ngFor="let image of spotImages">
+				<img [src]="image.path" class="slide-image"/>
 			</ion-slide>
 		</ion-slides>
 	</div>
 	<ion-item text-wrap>
-		<p>{{spot.description}}</p>
-		<p text-right> - {{spot.owner}}</p> 
+		<p>{{spotDetail.description}}</p>
+		<p text-right> - {{spotOwner.userName}}</p>
 	</ion-item>
-	
+
 	<ion-card class="rating-section">
-		<rating [(ngModel)]="spot.rating" (ngModelChange)="ratingChange($event)"></rating>
+		<rating [(ngModel)]="spotDetail.score" (ngModelChange)="ratingChange($event)"></rating>
 		<ion-item>
-		  <p class="ranking">#{{spot.cityrank}} in {{spot.city}}</p>
+		  <p class="ranking">#{{spotDetail.ranking}} in {{spotCity.name}}</p>
 		</ion-item>
 	</ion-card>
 
 	<div class="work-log">
 		<h1 text-center>Pflegehistorie</h1>
-		<ion-card *ngFor="let entry of workLog">
+		<ion-card *ngFor="let entry of spotWorkEntries">
 			<ion-item>
 				<ion-avatar item-left>
-					<img [src]="">
+					<img [src]="entry.user.avatar.path">
 				</ion-avatar>
-				<h2>{{entry.user}}</h2>
-				<p>{{entry.date}}</p>
+				<h2>{{entry.user.userName}}</h2>
+				<p>{{entry.entryDate | date:'dd.MM.yyyy, hh:mm:ss'}} Uhr</p>
 			</ion-item>
 			<ion-card-content text-wrap>
-				<p>{{entry.comment}}</p>
+				<p>{{entry.description}}</p>
 			</ion-card-content>
 		</ion-card>
 	</div>
@@ -54,7 +54,7 @@
 	<ion-fab right bottom>
 		<button ion-fab color="primary"><ion-icon name="add"></ion-icon></button>
 		<ion-fab-list side="top">
-			<button ion-fab color="primary"><ion-icon name="create"></ion-icon></button>
+			<button ion-fab color="primary" (click)="openCreateWorkEntry()"><ion-icon name="create"></ion-icon></button>
 			<button ion-fab color="primary"><ion-icon name="image"></ion-icon></button>
 		</ion-fab-list>
 	</ion-fab>

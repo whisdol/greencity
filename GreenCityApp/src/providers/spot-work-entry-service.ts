@@ -19,10 +19,10 @@ export class SpotWorkEntryService {
   }
 
   // Get work entries for spot
-  getAll(input: any) {
+  getAll(spotId: any) {
 
   return new Promise(resolve => {
-    this.http.get('http://greencity.whisdol.de:8080/spots/' + input.spotId + '/workEntries')
+    this.http.get('http://greencity.whisdol.de:8080/spots/' + spotId + '/workEntries')
     .map(res => res.json())
     .subscribe(data => {
     this.entries = data;

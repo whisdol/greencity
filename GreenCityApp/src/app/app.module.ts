@@ -14,6 +14,7 @@ import { ItemCreatePage } from '../pages/item-create/item-create';
 import { ItemDetailPage } from '../pages/item-detail/item-detail';
 import { MapPage } from '../pages/map/map';
 import { SpotDetailPage } from '../pages/spot-detail/spot-detail'
+import { CreateWorkEntryPage } from '../pages/create-work-entry/create-work-entry'
 import { WissenPage } from '../pages/wissen/wissen';
 import { WissenBeliebtPage } from '../pages/wissen-beliebt/wissen-beliebt';
 import { WissenNeuPage } from '../pages/wissen-neu/wissen-neu';
@@ -78,6 +79,7 @@ let pages = [
   ItemCreatePage,
   MapPage,
   SpotDetailPage,
+  CreateWorkEntryPage,
   WissenPage,
   WissenBeliebtPage,
   WissenNeuPage,

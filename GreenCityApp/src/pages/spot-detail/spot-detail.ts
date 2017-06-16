@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { SpotService } from '../../providers/spot-service';
+import { SpotImageService } from '../../providers/spot-image-service';
+import { SpotWorkEntryService } from '../../providers/spot-work-entry-service';
+import { CreateWorkEntryPage } from '../create-work-entry/create-work-entry';
 
 /*
   Generated class for the SpotDetail page.
@@ -10,7 +14,8 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
 
 @Component({
   selector: 'page-spot-detail',
-  templateUrl: 'spot-detail.html'
+  templateUrl: 'spot-detail.html',
+  providers: [SpotService, SpotImageService, SpotWorkEntryService, CreateWorkEntryPage]
 })
 
 export class SpotDetailPage {
@@ -18,50 +23,50 @@ export class SpotDetailPage {
 	spot: Object;
 	workLog: Array<Object>;
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
+  public spotDetail = {};
+  public spotOwner = {};
+  public spotAddress = {};
+  public spotCity = {};
+  public spotImages: any;
+  public spotWorkEntries: any;
+
+	constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public spotService: SpotService,
+    public spotImageService: SpotImageService,
+    public spotWorkEntryService: SpotWorkEntryService,
+    public createWorkEntryPage: CreateWorkEntryPage) {
+
 		this.spotId = navParams.get('id');
 
-		let spotDetails = {
-			12345: {'name': 'Escher Gärtchen', 'description': 'Das kleine Gärtchen an der Escherstr.', 'rating': 3.5, 'owner': 'Franz53', 'img': ["assets/img/spot_image.png", "assets/img/spot_image.png", "assets/img/spot_image.png"], 'city': 'Köln', 'cityrank': 66, 'lat': 50.955639, 'lng': 6.948812, "work_history":[
-				  {"user": "Franz53",
-				   "comment": "Heute habe ich die Pflanzen gegossen.",
-				  "date": "2017-03-05 17:15:47 UTC"},
-				   {"user": "Dieter",
-					 "comment": "Nach dem Entfernen des Unkrauts wird es wieder richtig schön!",
-				  "date": "2017-03-03 16:16:35 UTC"}
-					]
-		   		},
-			12346: {'name': 'Wickraths Strauß', 'description': 'Blümchen!Schöne Blumen zu jeder Jahreszeit.', 'rating': 4.5, 'owner': 'Sandra', 'img': ["assets/img/spot_image.png", "assets/img/spot_image.png", "assets/img/spot_image.png"], 'city': 'Köln', 'cityrank': 13, 'lat': 50.954375, 'lng': 6.952084, "work_history":[
-					  {"user": "Franz53",
-					   "comment": "Heute habe ich die Pflanzen gegossen.",
-					  "date": "2017-03-05 17:15:47 UTC"},
-					   {"user": "Dieter",
-						 "comment": "Nach dem Entfernen des Unkrauts wird es wieder richtig schön!",
-					  "date": "2017-03-03 16:16:35 UTC"}
-					]
-			  	},
-			12347: {'name': 'Kasparle', 'description': 'Gelbe Pflänzlein bevorzugt.', 'rating': 3.5, 'owner': 'Günni', 'img': ["assets/img/spot_image.png", "assets/img/spot_image.png", "assets/img/spot_image.png"], 'lat': 50.953486, 'city': 'Köln', 'cityrank': 65, 'lng': 6.953065, "work_history":[
-					  {"user": "Franz53",
-					   "comment": "Heute habe ich die Pflanzen gegossen.",
-					  "date": "2017-03-05 17:15:47 UTC"},
-					   {"user": "Dieter",
-						 "comment": "Nach dem Entfernen des Unkrauts wird es wieder richtig schön!",
-					  "date": "2017-03-03 16:16:35 UTC"}
-					]
-				},
-			12348: {'name': 'Ringschen', 'description': 'Direkt am Hansaring: die kleine Oase.', 'rating': 5, 'owner': 'Haxn Herb', 'img': ["assets/img/spot_image.png", "assets/img/spot_image.png", "assets/img/spot_image.png"], 'city': 'Köln', 'cityrank': 1, 'lat': 50.949931, 'lng': 6.955110, "work_history":[
-					  {"user": "Franz53",
-					   "comment": "Heute habe ich die Pflanzen gegossen.",
-					  "date": "2017-03-05 17:15:47 UTC"},
-					   {"user": "Dieter",
-						 "comment": "Nach dem Entfernen des Unkrauts wird es wieder richtig schön!",
-					  "date": "2017-03-03 16:16:35 UTC"}
-					]
-			  	}
-			};
-		this.spot = spotDetails[this.spotId];
-		this.workLog = this.spot['work_history'];
+    // Get spot by Id
+    this.spotService.get(this.spotId)
+      .then(spot => {
+        this.spotDetail = spot;
+        this.spotOwner = spot['owner'];
+        this.spotAddress = spot['address'];
+        this.spotCity = this.spotAddress['city'];
+        });
+
+    // Get spot images
+    this.spotImageService.get(this.spotId)
+      .then(images => {
+        this.spotImages = images;
+        });
+
+    // Get work entries for spot
+    this.spotWorkEntryService.getAll(this.spotId)
+      .then(entries => {
+        this.spotWorkEntries = entries;
+        });
+
   	}
+
+    openCreateWorkEntry() {
+      this.navCtrl.push(CreateWorkEntryPage);
+    }
 
 	ionViewDidLoad() {
 		console.log('ionViewDidLoad SpotDetailPage');
