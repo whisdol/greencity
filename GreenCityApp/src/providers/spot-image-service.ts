@@ -19,10 +19,11 @@ export class SpotImageService {
   }
 
   // Get spot images
-  get(input: any) {
+  get(id: any) {
 
   return new Promise(resolve => {
-    this.http.get('http://greencity.whisdol.de:8080/spots/' + input.id + '/images')
+    this.http.get('http://greencity.whisdol.de:8080/spots/' + id + '/images')
+
     .map(res => res.json())
     .subscribe(data => {
     this.images = data;
