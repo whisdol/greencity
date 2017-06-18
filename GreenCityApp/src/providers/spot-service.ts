@@ -12,7 +12,6 @@ import 'rxjs/add/operator/map';
 export class SpotService {
 
   spot: Object;
-  // spot = {};
   searchParameter: any;
 
   constructor(public http: Http) {
@@ -24,6 +23,7 @@ export class SpotService {
 
   return new Promise(resolve => {
     this.http.get('http://greencity.whisdol.de:8080/spots/' + id)
+    
     .map(res => res.json())
     .subscribe(data => {
     this.spot = data;

@@ -23,6 +23,7 @@ export class SpotWorkEntryService {
 
   return new Promise(resolve => {
     this.http.get('http://greencity.whisdol.de:8080/spots/' + spotId + '/workEntries')
+
     .map(res => res.json())
     .subscribe(data => {
     this.entries = data;

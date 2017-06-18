@@ -48,7 +48,7 @@ public class SpotWorkEntryDAO implements ISpotWorkEntryDAO {
     @Override
     public List<SpotWorkEntry> getAllSpotWorkEntriesBySpot(long spotId) throws ObjectNotFoundException {
         JdbcTemplate select = new JdbcTemplate(dataSource);
-        return (List<SpotWorkEntry>) select.query("SELECT maintain_id, spot_id, maintain_date, user_id, short_desc, description FROM spot_work_entries WHERE spot_id = ?",
+        return (List<SpotWorkEntry>) select.query("SELECT maintain_id, spot_id, maintain_date, user_id, short_desc, description FROM spot_work_entries WHERE spot_id = ? ORDER BY maintain_date DESC",
                 new Object[]{ spotId },
                 new SpotWorkEntryRowMapper());
     }
