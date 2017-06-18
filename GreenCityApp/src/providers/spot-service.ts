@@ -12,7 +12,6 @@ import 'rxjs/add/operator/map';
 export class SpotService {
 
   spot: Object;
-  // spot = {};
   searchParameter: any;
 
   constructor(public http: Http) {

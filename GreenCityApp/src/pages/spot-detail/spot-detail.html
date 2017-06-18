@@ -15,6 +15,10 @@
 
 <ion-content padding>
 
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
 	<h1 text-center>{{spotDetail.name}}</h1>
 	<div class="spot-images">
 		<ion-slides pager>
@@ -36,14 +40,14 @@
 	</ion-card>
 
 	<div class="work-log">
-		<h1 text-center>Pflegehistorie</h1>
+		<h1 text-center>Arbeitseinträge</h1>
 		<ion-card *ngFor="let entry of spotWorkEntries">
 			<ion-item>
 				<ion-avatar item-left>
 					<img [src]="entry.user.avatar.path">
 				</ion-avatar>
 				<h2>{{entry.user.userName}}</h2>
-				<p>{{entry.entryDate | date:'dd.MM.yyyy, hh:mm:ss'}} Uhr</p>
+				<p>{{entry.entryDate | date:'dd.MM.yyyy, HH:mm:ss'}} Uhr</p>
 			</ion-item>
 			<ion-card-content text-wrap>
 				<p>{{entry.description}}</p>

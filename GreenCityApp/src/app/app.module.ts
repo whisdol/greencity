@@ -20,7 +20,6 @@ import { WissenBeliebtPage } from '../pages/wissen-beliebt/wissen-beliebt';
 import { WissenNeuPage } from '../pages/wissen-neu/wissen-neu';
 import { WissenTopPage } from '../pages/wissen-top/wissen-top';
 import { WissenExpertenPage } from '../pages/wissen-experten/wissen-experten';
-import { WissenSuchePage } from '../pages/wissen-suche/wissen-suche';
 import { CommunityPage } from '../pages/community/community';
 import { CommunityChatPage } from '../pages/community-chat/community-chat';
 import { CommunityProfilPage } from '../pages/community-profil/community-profil';
@@ -85,7 +84,6 @@ let pages = [
   WissenNeuPage,
   WissenTopPage,
   WissenExpertenPage,
-  WissenSuchePage,
   CommunityPage,
   CommunityChatPage,
   CommunityProfilPage,

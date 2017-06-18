@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
 import { SpotService } from '../../providers/spot-service';
 import { SpotImageService } from '../../providers/spot-image-service';
 import { SpotWorkEntryService } from '../../providers/spot-work-entry-service';
@@ -37,7 +37,8 @@ export class SpotDetailPage {
     public spotService: SpotService,
     public spotImageService: SpotImageService,
     public spotWorkEntryService: SpotWorkEntryService,
-    public createWorkEntryPage: CreateWorkEntryPage) {
+    public createWorkEntryPage: CreateWorkEntryPage,
+    public modalCtrl: ModalController) {
 
 		this.spotId = navParams.get('id');
 
@@ -65,7 +66,14 @@ export class SpotDetailPage {
   	}
 
     openCreateWorkEntry() {
-      this.navCtrl.push(CreateWorkEntryPage);
+
+      let createWorkEntryPageModal = this.modalCtrl.create(CreateWorkEntryPage, { id: this.spotDetail['id'] });
+
+        var refresher: any;
+
+         createWorkEntryPageModal.onDidDismiss( ()=>this.doRefresh(refresher) );
+         createWorkEntryPageModal.present();
+
     }
 
 	ionViewDidLoad() {
@@ -75,5 +83,28 @@ export class SpotDetailPage {
 	ratingChange(event: any) {
 		console.log('Rated something, tbd');
 	}
+
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+
+    // Get work entries for spot
+    this.spotWorkEntryService.getAll(this.spotId)
+      .then(entries => {
+        this.spotWorkEntries = entries;
+        });
+
+    setTimeout(() => {
+      console.log('Async operation has ended');
+
+      try {
+      refresher.complete();
+      }
+      catch (error)
+      {
+        console.log('Error');
+      };
+
+    }, 2000);
+  }
 
 }
