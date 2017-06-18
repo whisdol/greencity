@@ -17,7 +17,7 @@
 
 
 <ion-content>
-
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="Suche nach Wissensbeiträgen"></ion-searchbar>
   <ion-card *ngFor="let item of cardItems">
 
     <ion-item>

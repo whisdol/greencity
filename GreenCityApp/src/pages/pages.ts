@@ -6,7 +6,6 @@ import { WissenBeliebtPage } from './wissen-beliebt/wissen-beliebt';
 import { WissenNeuPage } from './wissen-neu/wissen-neu';
 import { WissenTopPage } from './wissen-top/wissen-top';
 import { WissenExpertenPage } from './wissen-experten/wissen-experten';
-import { WissenSuchePage } from './wissen-suche/wissen-suche';
 import { MapPage } from './map/map';
 
 // The page the user lands on after opening the app and without a session
@@ -21,7 +20,6 @@ export const Tab1Root = WissenBeliebtPage;
 export const Tab2Root = WissenNeuPage;
 export const Tab3Root = WissenTopPage;
 export const Tab4Root = WissenExpertenPage;
-export const Tab5Root = WissenSuchePage;
 export const Tab6Root = CommunityProfilPage;
 export const Tab7Root = CommunityChatPage;
 export const Tab8Root = CommunityUgalleryPage;

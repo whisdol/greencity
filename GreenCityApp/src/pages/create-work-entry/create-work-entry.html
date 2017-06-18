@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Neuer Pflegeeintrag</ion-title>
+    <ion-title>Neuer Arbeitseintrag</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -15,13 +15,13 @@
 
 <ion-content padding>
 <ion-item>
-  <ion-label color="primary" stacked>Titel des Pflegeeintrages</ion-label>
-  <ion-input placeholder="Gib hier einen Titel ein."></ion-input>
+  <ion-label color="primary" stacked>Titel des Arbeitseintrages</ion-label>
+  <ion-input [(ngModel)]="createWorkEntryTitle" (change)="readWorkEntryTitle(value)" placeholder="Gib hier einen Titel ein."></ion-input>
   </ion-item>
   <ion-item>
   <ion-label color="primary" stacked>Beschreibung</ion-label>
-  <ion-textarea placeholder="Gib hier eine Pflegebeschreibung ein."></ion-textarea>
+  <ion-textarea [(ngModel)]="createWorkEntryDescription" (change)="readWorkEntryDescription(value)" placeholder="Gib hier eine Beschreibung ein."></ion-textarea>
   </ion-item>
-  <button ion-button block color="primary">Speichern</button>
-  <button ion-button block color="danger">Abbrechen</button>
+  <button ion-button block color="primary" (click)="saveWorkEntry()">Speichern</button>
+  <button ion-button block color="danger" (click)="abort()">Abbrechen</button>
 </ion-content>
