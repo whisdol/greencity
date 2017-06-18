@@ -32,15 +32,15 @@ public class SpotWorkEntryRestController {
             entries = spotWorkEntryDAO.getAllSpotWorkEntriesBySpot(spotId);
         } catch (ObjectNotFoundException e) {
             // The spot has not been found
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(404).body("[]");
         } catch (Exception e) {
             // The request is invalid and caused an error
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity.badRequest().body("[]");
         }
 
         if (entries.size() < 1) {
             // There are no entries for this spot
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.status(404).body("[]");
         }
         return ResponseEntity.ok(entries);
     }
